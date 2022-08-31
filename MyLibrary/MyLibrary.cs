@@ -24,7 +24,7 @@ public static class Message // статичные переменные с тек
 
     public static string invite_to_input_hometask_number_msg = "Введите номер задачи: ";
 
-    public static string not_implemented_task_number = "Непредусмотренный номер задачи. Перезапустите программу.";
+    public static string not_implemented_task_number = "Непредусмотренный номер задачи. Повторите ввод: ";
 }
 #endregion
 
