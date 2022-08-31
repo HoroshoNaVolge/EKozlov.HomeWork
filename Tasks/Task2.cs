@@ -3,8 +3,8 @@ public class Task2 : HomeworkTask
 {
     public Task2() : base()
     {
-        Number = 2;
-        QuantityOfArguments = 2;
+        Number = 2; // номер задачи согласно списку ДЗ 
+        QuantityOfArguments = 2; // количество входных аргументов согласно тексту задачи 
         Description = $"Выполняется задача №{Number}: Напишите программу, которая на вход принимает два числа и выдаёт, какое число большее, а какое меньшее.";
         
         ShowMessage(Description);
@@ -13,10 +13,8 @@ public class Task2 : HomeworkTask
         Result = "Наибольшим числом является: ";
     }
 
-    public override string Execute()
+    public override string Execute() //реализация задачи
     {
-
-
         int maxNumber = Arguments[0];
         int minNumber = Arguments[1];
 

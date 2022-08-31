@@ -6,7 +6,7 @@ public static class MyConsole // обёртка для возможности з
 
     public static string ReadLine(string message) // перегрузка с аргументом, который необходимо вывести, как сообщение при помощи Write
     {
-        System.Console.Write(message);
+        System.Console.Write(message); 
         return ReadLine();
     }
 }

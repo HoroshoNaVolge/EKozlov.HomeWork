@@ -3,8 +3,8 @@ public class Task6 : HomeworkTask
 {
     public Task6() : base()
     {
-        Number = 6;
-        QuantityOfArguments = 1;
+        Number = 6; // номер задачи согласно списку ДЗ 
+        QuantityOfArguments = 1; // количество входных аргументов согласно тексту задачи 
         
         Description = $"Выполняется задача №{Number}: Напишите программу, которая на вход принимает число и выдаёт, является ли число чётным (делится ли оно на два без остатка)";
         
@@ -15,7 +15,7 @@ public class Task6 : HomeworkTask
         Result = "Число ";
     }
 
-    public override string Execute()
+    public override string Execute() //реализация задачи
     {
         int checkNumberAsOdd = Arguments[0];
         if (checkNumberAsOdd % 2 == 0)
