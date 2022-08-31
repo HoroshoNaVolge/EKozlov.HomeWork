@@ -1,16 +1,20 @@
+using static MyLibrary.MyMethods;
 public class Task8 : HomeworkTask
 {
     public Task8() : base()
     {
-        Number = 2;
+        Number = 8;
         QuantityOfArguments = 1;
-        Result = $"Список всех чётным чиселн от 1 до {Arguments[0]}";
+        
         Description = $"Выполняется задача №{Number}: Напишите программу, которая на вход принимает число (N), а на выходе показывает все чётные числа от 1 до N."; 
-        Console.WriteLine(Description);
+        
+        ShowMessage (Description);
+
         Arguments = CreateArgumentsForTask(QuantityOfArguments);
+        Result = $"Список всех чётным чиселн от 1 до {Arguments[0]}: ";
     }
 
-    public override string ExecuteTask()
+    public override string Execute()
     {
         int tempVar = Arguments[0];
 

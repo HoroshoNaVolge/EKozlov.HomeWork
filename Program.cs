@@ -1,10 +1,12 @@
-﻿using MyLibrary;
-  
-        int homeworkNumber = MyMethods.GetConsoleInput(Message.invite_to_input_hometask_number_msg); // парсим после проверки на ввод с рекурсивным вызовом ввода при некорректном вводе
-        
-        TaskCreator creator= new TaskCreator (); 
+﻿using static MyLibrary.MyMethods;
+using static MyLibrary.Message;
 
-        HomeworkTask currentTask= creator.CreateTask(homeworkNumber);
+TaskCreator creator = new TaskCreator();
+bool isFirstExecution = true;
 
-        Console.WriteLine(currentTask.ExecuteTask());
-        
+while (creator.AskToStart(isFirstExecution))
+{
+    HomeworkTask currentTask = creator.CreateTask(GetConsoleInput(invite_to_input_hometask_number_msg));
+    ShowMessage(currentTask.Execute());
+    isFirstExecution = false;
+}

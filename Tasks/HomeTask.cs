@@ -1,11 +1,13 @@
 using MyLibrary;
+using static MyLibrary.MyMethods;
+using static MyLibrary.Message;
 
 public class HomeworkTask
 {
     #region Свойства
     public int Number { get; protected set; } // readonly-свойство номера домашнего задания
 
-    public string Description {get; protected set;} // readonly-свойство. Описания задачи
+    public string Description { get; protected set; } // readonly-свойство. Описания задачи
 
     public int[] Arguments { get; protected set; } // свойство, содержащее аргументы для выполнения задачи
 
@@ -14,11 +16,11 @@ public class HomeworkTask
 
     public string Result { get; protected set; }
     #endregion
-    
-    #region Конструктор
+
+    #region Конструктор родительского типа ДЗ
     public HomeworkTask() // конструктор класса домашнего задания
     {
-        Console.WriteLine(Description);
+        ShowMessage(Description);
     }
     #endregion
 
@@ -28,12 +30,12 @@ public class HomeworkTask
 
         for (int x = 0; x < args.Length; x++)
         {
-            args[x] = MyMethods.GetConsoleInput(Message.invite_to_input_number_msg);
+            args[x] = GetConsoleInput(invite_to_input_number_msg);
         }
         return args;
     }
 
-    public virtual string ExecuteTask()
+    public virtual string Execute()
     {
         return null;
     }
