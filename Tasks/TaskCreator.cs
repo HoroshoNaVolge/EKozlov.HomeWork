@@ -1,4 +1,3 @@
-using MyLibrary;
 using static MyLibrary.MyMethods;
 using static MyLibrary.Message;
 using static MyLibrary.MyConsole;

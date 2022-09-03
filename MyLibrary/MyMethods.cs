@@ -13,6 +13,5 @@ public static class MyMethods // стат. класс для моими мето
             return parseResult; // преобразование возможно - возвращаем int 
         else
             return GetConsoleInput(incorrect_input_msg); // преобразование невозможно - рекурсивно вызываем метод ввода, пока не будет корректного ввода
-
     }
 }

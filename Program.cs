@@ -8,6 +8,9 @@ while (creator.AskToStart(isFirstExecution)) // Работа программы 
 {
     HomeworkTask currentTask = creator.CreateTask(GetConsoleInput(invite_to_input_hometask_number_msg)); // инициализируем экземпляр конкретной задачи при помощи метода класса TaskCreator
     // метод GetConsoleInput(msg) - перегрузка Console.Readline с доп. логикой - возвращает преобразованный int после проверки. Описан в MyLibrary.MyMethods.
-    ShowMessage(currentTask.Execute()); // передаём в метод ShowMessage (в данной реализации вывод на консоль) string-результат выполнения текущей задачи в методе Execute.  
+    ShowMessage(currentTask.Execute()); // передаём в метод ShowMessage (в данной реализации вывод на консоль) string-результат выполнения текущей задачи в методе Execute.
+    while(currentTask.AskNeedToRepeatTask())
+        ShowMessage(currentTask.Execute());
+
     isFirstExecution = false; // первичный запуск прошёл, меняем буль на false для вывода иного сообщения пользователю в дальнейшем
 }
