@@ -13,14 +13,22 @@ public class TaskCreator
                 return new Task2(); // создание экземпляра задачи №2
                 break;
             case 4:
-                return new Task4();// создание экземпляра задачи №4
+                return new Task4(); // создание экземпляра задачи №4
                 break;
             case 6:
-                return new Task6();// создание экземпляра задачи №6
+                return new Task6(); // создание экземпляра задачи №6
                 break;
             case 8:
-                return new Task8();// создание экземпляра задачи №8
+                return new Task8(); // создание экземпляра задачи №8
                 break;
+            case 10:
+                return new Task10(); // создание экземпляра задачи №10
+            case 13:
+                return new Task13(); // создание экземпляра задачи №13
+                break;
+            case 15:
+                return new Task15(); // создание экземпляра задачи №15
+                
 
             default: // если никакой актуальный номер не введен
                 Console.WriteLine(not_actual_task_number_msg); // Выводит сообщение о неактуальном номере
