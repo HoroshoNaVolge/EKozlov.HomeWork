@@ -3,7 +3,7 @@ public static class Message // статичные переменные с тек
 {
     public static string incorrect_input_msg = "Некорректный ввод. Повторите попытку ввода целого числа: ";
     public static string invite_to_input_number_msg = "Введите целое число: ";
-    public static string invite_to_input_hometask_number_msg = "Введите номер актуальной задачи: ";
+    public static string invite_to_input_hometask_number_msg = "Введите номер задачи: ";
     public static string not_actual_task_number_msg = "Такой номер задачи отсутствует в актуальном задании. \nНомера актуальных задач описаны в 'README.md' ";
     public static string welcome_msg = "Добро пожаловать в мою программу по домашним заданиям. \nНомера актуальных задач описаны в 'README.md'";
     public static string ask_to_continue_msg = "Хотите ли Вы продолжить работу с другими задачами? y/n ";

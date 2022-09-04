@@ -9,22 +9,21 @@ public class Task_015 : HomeworkTask
 
         Description = $"Выполняется задача №{Number}: Программа принимает на вход цифру, обозначающую день недели, и проверяет, является ли этот день выходным.";
 
-        ShowMessage(Description);
+        ShowMessage(Description); // вывод в UI информации о выбранной задаче
 
-        Arguments = CreateArgumentsForTask(QuantityOfArguments);
+        Arguments = CreateArgumentsForTask(QuantityOfArguments); // создание массива аргументов для данной задачи через ввод пользователем (метод родительского класса Homework) 
     }
 
     public override void Execute() //реализация задачи
     {
-        // TODO заменить на валидацию модели
-        while (Arguments[0] > 7 || Arguments[0] < 0)
-            Arguments[0] = GetConsoleInput($" {Arguments[0]} не является числовым представлением дня недели.Корректные числа для ввода - 1...7.\nПовторите ввод: ");
+        while (Arguments[0] > 7 || Arguments[0] < 0) // проверка числа на нахождение в диапазоне от 1 до 7 вкл.
+            Arguments[0] = GetConsoleInput($" {Arguments[0]} не является числовым представлением дня недели.Корректные числа для ввода - 1...7.\nПовторите ввод: "); // рекурсивный запрос ввода числа при несоответсии допустимому диапазону.
 
-        int[] dayOff = { 6, 7 };
+        int[] dayOff = { 6, 7 }; // выходные дни по условиям задачи
 
-        if (Arguments[0] == dayOff[0] || Arguments[0] == dayOff[1])
-            Result = $" {Arguments[0]}  =>  " + " да, это выходной";
+        if (Arguments[0] == dayOff[0] || Arguments[0] == dayOff[1]) // проверка на равенство аргумента либо 6 либо 7. Для оптимизации используем || - проверяет первый блок - если true, второй уже не выполняется (в отиличии от |).
+            Result = $" {Arguments[0]}  =>  " + " да, это выходной."; // если true, то присваиваем свойству Result результат выполнения метода Execute
         else
-            Result = $" {Arguments[0]}  =>  " + " нет, это не выходной";
+            Result = $" {Arguments[0]}  =>  " + " нет, это не выходной."; // если false, то также присваиваем свойству Result результат выполнения метода Execute
     }
 }

@@ -2,21 +2,21 @@ using static MyLibrary.MyMethods;
 using static MyLibrary.Message;
 using static MyLibrary.MyConsole;
 
-public class TaskCreator
+public class TaskManager
 {
-    #region Конструктор класса TaskCreator
-    //Конструктор TaskCreator. При инициализации хранит ссылку на объект задачи по умолчанию (пустая задача без реализации).
-    public TaskCreator()
+    #region Конструктор класса TaskManager
+    //Конструктор TaskManager. При инициализации хранит ссылку на объект задачи по умолчанию (пустая задача без реализации).
+    public TaskManager()
     {
         CurrentTask = new HomeworkTask();
     }
     #endregion
 
-    #region Свойства класса TaskCreator
+    #region Свойства класса TaskManager
     public HomeworkTask CurrentTask { get; private set; } // свойство, хранящее ссылку на экземпляр текущего задания.
     #endregion
 
-    #region Методы класса TaskCreator
+    #region Методы класса TaskManager
     public HomeworkTask CreateTask(int number) // Метод создания экземляра контретной задачи по указанному номеру.
     {
         switch (number) // новые задачи добавлять путем внесения кейса в switch.
@@ -42,7 +42,7 @@ public class TaskCreator
         }
     }
 
-    public bool AskToStart(bool firstExecution) // проверка TaskCreator необходимо ли выполнять программу.
+    public bool AskToStart(bool firstExecution) // проверка TaskManager необходимо ли выполнять программу.
 
     {
         if (firstExecution) // если первый запуск программы.
@@ -63,7 +63,7 @@ public class TaskCreator
         }
     }
 
-    public bool AskToRepeatTask() // проверка TaskCreator необходимо ли повторно запустить ту же задачу
+    public bool AskToRepeatTask() // проверка TaskManager необходимо ли повторно запустить ту же задачу
     {
 
         if (GetYesOrNoInput(ask_to_repeat_task_msg)) // если ответ на повтор задачи положительный

@@ -7,11 +7,11 @@ public class Task_006 : HomeworkTask
 
         QuantityOfArguments = 1; // количество входных аргументов согласно тексту задачи 
 
-        Description = $"Выполняется задача №{Number}: Программа на вход принимает число и выдаёт, является ли число чётным (делится ли оно на два без остатка)";
+        Description = $"Выполняется задача №{Number}: Программа на вход принимает число и выдаёт, является ли число чётным (делится ли оно на два без остатка)"; // описание задачи
 
-        ShowMessage(Description);
+        ShowMessage(Description); // вывод в UI информации о выбранной задаче
 
-        Arguments = CreateArgumentsForTask(QuantityOfArguments);
+        Arguments = CreateArgumentsForTask(QuantityOfArguments); // создание массива аргументов для данной задачи через ввод пользователем (метод родительского класса Homework) 
     }
 
     public override void Execute() //реализация задачи
