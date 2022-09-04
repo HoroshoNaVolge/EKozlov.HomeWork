@@ -11,7 +11,6 @@ public class Task8 : HomeworkTask
         ShowMessage (Description);
 
         Arguments = CreateArgumentsForTask(QuantityOfArguments);
-        Result = $"Список всех чётных чисел от 1 до {Arguments[0]}: ";
     }
 
     public override string Execute() //реализация задачи
@@ -25,10 +24,12 @@ public class Task8 : HomeworkTask
             if (x % 2 == 0)
                 oddNumbers.Add(x);
         }
+
+        string listOfOdds=string.Empty;
         foreach (int x in oddNumbers)
         {
-            Result += x.ToString() + " ";
+            listOfOdds += x.ToString() + " ";
         }
-        return Result;
+        return $"Список всех чётных чисел от 1 до {Arguments[0]}: " + listOfOdds;
     }
 }

@@ -14,4 +14,22 @@ public static class MyMethods // стат. класс для моими мето
         else
             return GetConsoleInput(incorrect_input_msg); // преобразование невозможно - рекурсивно вызываем метод ввода, пока не будет корректного ввода
     }
+
+    public static bool GetYesOrNoInput(string message)
+    {
+        string stringInput = MyConsole.ReadLine(message);
+        if (stringInput.ToLower() == checkedYes) // если ввод "y/Y" - продолжаем
+        {
+            return true;
+        }
+        else if (stringInput.ToLower() == checkedNo) // если ввод "n/N" - завершаем.
+        {
+            return false;
+        }
+
+        else // если введен другой символ/символы
+        {
+            return GetYesOrNoInput(not_chosen_yes_or_no_msg); // рекурсивный вызов ввода y или n
+        }
+    }
 }

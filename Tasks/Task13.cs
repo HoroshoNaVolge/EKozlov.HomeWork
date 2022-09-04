@@ -11,7 +11,7 @@ public class Task13 : HomeworkTask
         ShowMessage (Description);
 
         Arguments = CreateArgumentsForTask(QuantityOfArguments);
-        Result = $" Третья цифра числа {Arguments[0]}  => ";
+    
     }
 
     public override string Execute() //реализация задачи
@@ -19,10 +19,9 @@ public class Task13 : HomeworkTask
         string tempStringNumber = Arguments[0].ToString();
         char[] charNumberInString = tempStringNumber.ToCharArray();
         if (charNumberInString.Length>=3)
-            Result+=tempStringNumber[2];
+            return $"Третья цифра числа {Arguments[0]}  => " + Result+tempStringNumber[2];
         else
-            Result="Третьей цифры нет";
+            return "Третьей цифры нет";
 
-        return Result;
     }
 }

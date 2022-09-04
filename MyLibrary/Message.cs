@@ -1,7 +1,7 @@
 namespace MyLibrary;
 public static class Message // статичные переменные с текстом сообщений для вывода в UI
 {
-    public static string incorrect_input_msg = "Некорректный ввод. Повторите попытку ввода целого числа.";
+    public static string incorrect_input_msg = "Некорректный ввод. Повторите попытку ввода целого числа:";
     public static string invite_to_input_number_msg = "Введите целое число: ";
     public static string invite_to_input_hometask_number_msg = "Введите номер актуальной задачи: ";
     public static string not_actual_task_number_msg = "Такой номер задачи отсутствует в актуальном задании. \nНомера актуальных задач описаны в 'README.md' ";

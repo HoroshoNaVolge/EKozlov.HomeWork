@@ -12,7 +12,6 @@ public class Task4 : HomeworkTask
 
         Arguments = CreateArgumentsForTask(QuantityOfArguments);
 
-        Result = $"Наибольшим числом из {Arguments[0]}, {Arguments[1]}, {Arguments[2]} является: ";
     }
 
     public override string Execute() //реализация задачи
@@ -21,6 +20,6 @@ public class Task4 : HomeworkTask
         for (int x = 0; x < Arguments.Length; x++)
             if (Arguments[x] > maxNumber) maxNumber = Arguments[x];
 
-        return Result + (maxNumber);
+        return $"Наибольшим числом из {Arguments[0]}, {Arguments[1]}, {Arguments[2]} является: " + (maxNumber);
     }
 }

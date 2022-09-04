@@ -11,7 +11,6 @@ public class Task15 : HomeworkTask
         ShowMessage (Description);
 
         Arguments = CreateArgumentsForTask(QuantityOfArguments);
-        Result = $" {Arguments[0]}  =>  ";
     }
 
     public override string Execute() //реализация задачи
@@ -25,9 +24,9 @@ public class Task15 : HomeworkTask
                 
                 if (dayOff[i]==Arguments[0])
                 {
-                    return Result +" да, это выходной";
+                    return $" {Arguments[0]}  =>  " +" да, это выходной";
                 }
             }
-         return Result + " нет, это не выходной";
+         return $" {Arguments[0]}  =>  " + " нет, это не выходной";
     }
 }

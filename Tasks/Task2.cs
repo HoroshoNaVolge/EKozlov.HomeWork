@@ -10,7 +10,7 @@ public class Task2 : HomeworkTask
         ShowMessage(Description);
 
         Arguments = CreateArgumentsForTask(QuantityOfArguments);
-        Result = "Наибольшим числом является: ";
+        
     }
 
     public override string Execute() //реализация задачи
@@ -31,6 +31,6 @@ public class Task2 : HomeworkTask
         else
             return $"Числа одинаковы {Arguments[0]} и {Arguments[1]}";
 
-        return Result + (maxNumber) + ". Наименьшим числом является " + minNumber;
+        return $"Наибольшим числом является: {maxNumber}. Наименьшим числом является: {minNumber}" ;
     }
 }
