@@ -15,6 +15,7 @@ public class HomeworkTask
     public int QuantityOfArguments { get; protected set; } // свойство, содержащее количество аргументов для задачи
 
     public string Result { get; protected set; } // свойство с результатом выполнения задачи
+
     #endregion
 
     #region Конструктор родительского типа
