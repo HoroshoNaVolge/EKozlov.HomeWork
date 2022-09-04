@@ -11,5 +11,5 @@ public static class Message // статичные переменные с тек
     public static string goodBye_msg = "Программа проверки ДЗ завершена. Спасибо за внимание.";
     public static string checkedYes = "y";
     public static string checkedNo = "n";
-    public static string not_chosen_yes_or_no_msg = "Извините, но вы не написали ни 'y' ни 'n'. Введите контректный символ. ";
+    public static string not_chosen_yes_or_no_msg = "Некорретный ввод. Введите y (yes) или n (no). ";
 }
