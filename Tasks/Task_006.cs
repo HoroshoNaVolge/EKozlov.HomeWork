@@ -9,7 +9,7 @@ public class Task_006 : HomeworkTask
 
         Description = $"Выполняется задача №{Number}: Программа на вход принимает число и выдаёт, является ли число чётным (делится ли оно на два без остатка)"; // описание задачи
 
-        ShowMessage(Description); // вывод в UI информации о выбранной задаче
+        ShowConsoleMessage(Description); // вывод в UI информации о выбранной задаче
 
         Arguments = CreateArgumentsForTask(QuantityOfArguments); // создание массива аргументов для данной задачи через ввод пользователем (метод родительского класса Homework) 
     }

@@ -6,14 +6,16 @@ public class TaskManager
 {
     #region Конструктор класса TaskManager
     //Конструктор TaskManager. При инициализации хранит ссылку на объект задачи по умолчанию (пустая задача без реализации).
-    public TaskManager()
+    public TaskManager(MessageHandler messageHandler)
     {
+        MessageHandler = messageHandler; 
         CurrentTask = new HomeworkTask();
     }
     #endregion
 
     #region Свойства класса TaskManager
     public HomeworkTask CurrentTask { get; private set; } // свойство, хранящее ссылку на экземпляр текущего задания.
+    public MessageHandler MessageHandler {get; private set;} // переменная делегата для вывода сообщений в UI.
     #endregion
 
     #region Методы класса TaskManager
@@ -37,7 +39,7 @@ public class TaskManager
                 return CurrentTask = new Task_015(); // создание экземпляра задачи №15.
 
             default: // если никакой актуальный номер не введен.
-                ShowMessage(not_actual_task_number_msg); // Выводит сообщение о неактуальном номере.
+                MessageHandler?.Invoke(not_actual_task_number_msg); // Выводит сообщение о неактуальном номере.
                 return (CreateTask(GetConsoleInput(invite_to_input_hometask_number_msg))); // Рекурсивный запрос на повторный ввод, пока не будет актуальный номер введен.
         }
     }
@@ -47,7 +49,7 @@ public class TaskManager
     {
         if (firstExecution) // если первый запуск программы.
         {
-            ShowMessage(welcome_msg); // выводит приветствие. 
+            MessageHandler?.Invoke(welcome_msg); // выводит приветствие. 
             return true; // возвращает true, так как это первый запуск программы.
         }
 
@@ -57,11 +59,13 @@ public class TaskManager
                 return true;
             else // если нет,
             {
-                ShowMessage(goodBye_msg); // выводит прощальное сообщение,
+                MessageHandler?.Invoke(goodBye_msg); // выводит прощальное сообщение,
                 return false; // возвращает false.
             }
         }
     }
+
+    public void ShowTaskResult() => MessageHandler?.Invoke(CurrentTask.Result);
 
     public bool AskToRepeatTask() // проверка TaskManager необходимо ли повторно запустить ту же задачу
     {
