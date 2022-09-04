@@ -1,7 +1,7 @@
 ﻿using static MyLibrary.MyMethods; // подключаем мои дополнительные методы.
 using static MyLibrary.Message; // подключаем мои текстовые сообщения (статич. переменные типа string) для вывода в UI.
 
-TaskManager taskManager = new TaskManager(ShowConsoleMessage); // инициализируем экземпляр менеджера задач. В данном случае передаем параметром метод вывода в консоль (консольная реализация UI).
+TaskManager taskManager = TaskManager.getInstance(ShowConsoleMessage); // получаем экземпляр менеджера задач (паттерн Singleton). В данном случае передаем параметром метод вывода в консоль (консольная реализация UI).
 bool isFirstExecution = true; // при первичном запуске отмечаем true для соответствующего приветствия пользователя.
 
 while (taskManager.AskToStart(isFirstExecution)) // Работа программы допускается после завершения конкретной задачи, возвращается в метод AskToStart (запуск выбора задач).

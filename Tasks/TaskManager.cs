@@ -4,18 +4,28 @@ using static MyLibrary.MyConsole;
 
 public class TaskManager
 {
-    #region Конструктор класса TaskManager
-    //Конструктор TaskManager. При инициализации хранит ссылку на объект задачи по умолчанию (пустая задача без реализации).
-    public TaskManager(MessageHandler messageHandler)
+    private static TaskManager? taskManager; // Паттерн Singleton. Приватная переменная экзмемпляра TaskManager. Может быть null.  
+
+    #region Паттерн Singleton. Конструктор и геттер класса TaskManager
+
+    private TaskManager(MessageHandler messageHandler) //Паттерн Singleton. Приватный конструктор TaskManager. Инициализация пустой задачи.
     {
-        MessageHandler = messageHandler; 
-        CurrentTask = new HomeworkTask();
+        CurrentTask = new HomeworkTask(); // присваиваем пустую задачу (экземпляр родительского класса без параметров) в свойство CurrentTask.
+        MessageHandler=messageHandler; // присваиваем аргумент нашему свойству делегата обработчика вывода 
     }
+
+    public static TaskManager getInstance(MessageHandler messageHandler) // Паттерн Singleton. Статический геттер экземпляра класса TaskManager.
+    {
+        if (taskManager == null) // если экзмепляр класса еще не создавался
+            return taskManager = new TaskManager(messageHandler); // возвращаем новый экземпляр класса (параметр: делегат обработчика вывода сообщений).
+        return taskManager; // возвращаем ссылку на существующий экземпляр TaskManager.
+    }
+
     #endregion
 
     #region Свойства класса TaskManager
     public HomeworkTask CurrentTask { get; private set; } // свойство, хранящее ссылку на экземпляр текущего задания.
-    public MessageHandler MessageHandler {get; private set;} // переменная делегата для вывода сообщений в UI.
+    public MessageHandler MessageHandler { get; private set; } // свойство делегата для вывода сообщений в UI.
     #endregion
 
     #region Методы класса TaskManager
@@ -65,12 +75,12 @@ public class TaskManager
         }
     }
 
-    public void ShowTaskResult() => MessageHandler?.Invoke(CurrentTask.Result);
+    public void ShowTaskResult() => MessageHandler?.Invoke(CurrentTask.Result); // Метод вывода результата выполнения задачи в UI через делегат.
 
-    public bool AskToRepeatTask() // проверка TaskManager необходимо ли повторно запустить ту же задачу
+    public bool AskToRepeatTask() // проверка TaskManager необходимо ли повторно запустить ту же задачу.
     {
 
-        if (GetYesOrNoInput(ask_to_repeat_task_msg)) // если ответ на повтор задачи положительный
+        if (GetYesOrNoInput(ask_to_repeat_task_msg)) // если ответ на повтор задачи положительный.
         {
             CurrentTask = CreateTask(CurrentTask.Number); // в свойство текущей задачи кладёт новый экземпляр конкретной задачи с тем же номером.
             return true;
