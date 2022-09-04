@@ -40,7 +40,7 @@ public class HomeworkTask
 
         for (int x = 0; x < args.Length; x++)
         {
-            args[x] = GetConsoleInput(invite_to_input_number_msg); //ввод через переопределенный метод ReadLine с tryParse.
+            args[x] = GetConsoleInput(invite_to_input_number_msg); // ввод через переопределенный метод ReadLine с tryParse.
         }
         return args;
     }
