@@ -1,18 +1,21 @@
 using static MyLibrary.MyMethods;
-public class Task2 : HomeworkTask
+public class Task_002 : HomeworkTask
 {
-    public Task2() : base()
+    public Task_002() : base()
     {
         Number = 2; // номер задачи согласно списку ДЗ 
+
         QuantityOfArguments = 2; // количество входных аргументов согласно тексту задачи 
+
         Description = $"Выполняется задача №{Number}: Программа на вход принимает два числа и выдаёт, какое число большее, а какое меньшее.";
+
         ShowMessage(Description);
-        Arguments = CreateArgumentsForTask(this.QuantityOfArguments);
-        
+
+        Arguments = CreateArgumentsForTask(QuantityOfArguments);
     }
 
-    public override string Execute() //реализация задачи
-    {   
+    public override void Execute() //реализация задачи
+    {
         int maxNumber = Arguments[0];
         int minNumber = Arguments[1];
 
@@ -27,8 +30,8 @@ public class Task2 : HomeworkTask
             minNumber = Arguments[0];
         }
         else
-            return Result=$"Числа одинаковы {Arguments[0]} и {Arguments[1]}";
+            Result = $"Числа одинаковы {Arguments[0]} и {Arguments[1]}";
 
-        return Result=$"Наибольшим числом является: {maxNumber}. Наименьшим числом является: {minNumber}" ;
+        Result = $"Наибольшим числом является: {maxNumber}. Наименьшим числом является: {minNumber}";
     }
 }

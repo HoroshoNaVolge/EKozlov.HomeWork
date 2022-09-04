@@ -9,7 +9,7 @@ public static class Message // статичные переменные с тек
     public static string ask_to_continue_msg = "Хотите ли Вы продолжить работу с другими задачами? y/n ";
     public static string ask_to_repeat_task_msg = "Повторить выполнение этой задачи? y/n ";    
     public static string goodBye_msg = "Программа проверки ДЗ завершена. Спасибо за внимание.";
-    public static string checkedYes = "y";
-    public static string checkedNo = "n";
-    public static string not_chosen_yes_or_no_msg = "Некорретный ввод. Введите y или n. ";
+    public static string checkedYes = "y"; // необходимо для проверки ввода с консоли (обработка в методе GetYesOrNoInput в MyMethods)
+    public static string checkedNo = "n"; // необходимо для проверки ввода с консоли (обработка в методе GetYesOrNoInput в MyMethods)
+    public static string not_chosen_yes_or_no_msg = "Некорретный ввод. Введите y или n: ";
 }

@@ -1,19 +1,20 @@
 using static MyLibrary.MyMethods;
-public class Task8 : HomeworkTask
+public class Task_008 : HomeworkTask
 {
-    public Task8() : base()
+    public Task_008() : base()
     {
         Number = 8; // номер задачи согласно списку ДЗ 
+
         QuantityOfArguments = 1; // количество входных аргументов согласно тексту задачи 
-        
-        Description = $"Выполняется задача №{Number}: Программа на вход принимает число (N), а на выходе показывает все чётные числа от 1 до N."; 
-        
-        ShowMessage (Description);
+
+        Description = $"Выполняется задача №{Number}: Программа на вход принимает число (N), а на выходе показывает все чётные числа от 1 до N.";
+
+        ShowMessage(Description);
 
         Arguments = CreateArgumentsForTask(QuantityOfArguments);
     }
 
-    public override string Execute() //реализация задачи
+    public override void Execute() //реализация задачи
     {
         int tempVar = Arguments[0];
 
@@ -25,11 +26,11 @@ public class Task8 : HomeworkTask
                 oddNumbers.Add(x);
         }
 
-        string listOfOdds=string.Empty;
+        string listOfOdds = string.Empty;
         foreach (int x in oddNumbers)
         {
             listOfOdds += x.ToString() + " ";
         }
-        return Result=$"Список всех чётных чисел от 1 до {Arguments[0]}: " + listOfOdds;
+        Result = $"Список всех чётных чисел от 1 до {Arguments[0]}: " + listOfOdds;
     }
 }
