@@ -15,18 +15,15 @@ public class Task_010 : HomeworkTask
     }
 
     public override void Execute() //реализация задачи
-    {   // TODO ПЕРЕПИСАТЬ НА ВАЛИДАЦИЮ МОДЕЛИ
-        if (Arguments[0] / 100 < 1 || Arguments[0] / 100 > 10)
-        {
-            Result = "Введено не трёхзначное число. Работа завершена.";
-        }
-        //TODO ДОБАВИТЬ РЕКУРСИЮ НА ЗАПРОС ВВОДА ПРИ ВВОДЕ НЕТРЕХЗНАЧНОГО ЧИСЛА
-        else
-        {
+    {
+        // TODO ПЕРЕПИСАТЬ НА ВАЛИДАЦИЮ МОДЕЛИ
+        while ((Arguments[0] / 100 < 1 || Arguments[0] / 100 > 10))
+            Arguments[0] = GetConsoleInput("Введено не трёхзначное число. Повторите ввод: ");
+
         int tempNumber = Arguments[0] / 10; // 124 => 12 : получаем двукратное целое число без остатка
         int secondNumeral = tempNumber % 10; //12 => 2 // берём остаток от деления на 10 - это ответ.
 
         Result = $"В трёхзначном числе {Arguments[0]}  вторая цифра => {secondNumeral}";
-        }
+
     }
 }
