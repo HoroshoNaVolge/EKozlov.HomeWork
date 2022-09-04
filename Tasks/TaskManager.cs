@@ -6,12 +6,12 @@ public class TaskManager
 {
     private static TaskManager? taskManager; // Паттерн Singleton. Приватная переменная экзмемпляра TaskManager. Может быть null.  
 
-    #region Паттерн Singleton. Конструктор и геттер класса TaskManager
+    #region Конструктор и геттер класса TaskManager
 
     private TaskManager(MessageHandler messageHandler) //Паттерн Singleton. Приватный конструктор TaskManager. Инициализация пустой задачи.
     {
         CurrentTask = new HomeworkTask(); // присваиваем пустую задачу (экземпляр родительского класса без параметров) в свойство CurrentTask.
-        MessageHandler=messageHandler; // присваиваем аргумент нашему свойству делегата обработчика вывода 
+        MessageHandler = messageHandler; // присваиваем аргумент нашему свойству делегата обработчика вывода 
     }
 
     public static TaskManager getInstance(MessageHandler messageHandler) // Паттерн Singleton. Статический геттер экземпляра класса TaskManager.

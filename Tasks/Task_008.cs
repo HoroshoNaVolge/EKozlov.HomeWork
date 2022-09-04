@@ -9,7 +9,7 @@ public class Task_008 : HomeworkTask
 
         Description = $"Выполняется задача №{Number}: Программа на вход принимает число (N), а на выходе показывает все чётные числа от 1 до N."; // описание задачи
 
-        ShowConsoleMessage(Description); // вывод в UI информации о выбранной задаче
+        ConsoleMessage(Description); // вывод в UI информации о выбранной задаче
 
         Arguments = CreateArgumentsForTask(QuantityOfArguments); // создание массива аргументов для данной задачи через ввод пользователем (метод родительского класса Homework) 
     } 

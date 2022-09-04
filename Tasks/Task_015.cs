@@ -9,7 +9,7 @@ public class Task_015 : HomeworkTask
 
         Description = $"Выполняется задача №{Number}: Программа принимает на вход цифру, обозначающую день недели, и проверяет, является ли этот день выходным.";
 
-        ShowConsoleMessage(Description); // вывод в UI информации о выбранной задаче
+        ConsoleMessage(Description); // вывод в UI информации о выбранной задаче
 
         Arguments = CreateArgumentsForTask(QuantityOfArguments); // создание массива аргументов для данной задачи через ввод пользователем (метод родительского класса Homework) 
     }

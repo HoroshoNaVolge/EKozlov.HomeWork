@@ -9,7 +9,7 @@ public class Task_013 : HomeworkTask
 
         Description = $"Выполняется задача №{Number}: Программа выводит третью цифру заданного числа или сообщает, что третьей цифры нет."; // описание задачи
 
-        ShowConsoleMessage(Description); // вывод в UI информации о выбранной задаче
+        ConsoleMessage(Description); // вывод в UI информации о выбранной задаче
 
         Arguments = CreateArgumentsForTask(QuantityOfArguments); // создание массива аргументов для данной задачи через ввод пользователем (метод родительского класса Homework) 
     }
