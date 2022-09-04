@@ -19,9 +19,9 @@ public class Task13 : HomeworkTask
         string tempStringNumber = Arguments[0].ToString();
         char[] charNumberInString = tempStringNumber.ToCharArray();
         if (charNumberInString.Length>=3)
-            return $"Третья цифра числа {Arguments[0]}  => " + Result+tempStringNumber[2];
+            return Result=$"Третья цифра числа {Arguments[0]}  => " + Result+tempStringNumber[2];
         else
-            return "Третьей цифры нет";
+            return Result="Третьей цифры нет";
 
     }
 }

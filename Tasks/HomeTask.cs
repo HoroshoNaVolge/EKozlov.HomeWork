@@ -8,7 +8,7 @@ public class HomeworkTask
     #region Свойства
     public int Number { get; protected set; } // свойство номера домашнего задания
 
-    public string Description { get; protected set; } // свойство описания задачи (текст задачи)
+    public string Description { get; protected set; }  ="ХУЙНЯ НЕ ТО";// свойство описания задачи (текст задачи)
 
     public int[] Arguments { get; protected set; } // свойство, содержащее массив аргументов (целых чисел) для выполнения задачи
 
@@ -20,12 +20,20 @@ public class HomeworkTask
     #region Конструктор родительского типа
     public HomeworkTask() // конструктор класса домашнего задания
     {
-
+        Result=string.Empty;
+        ShowMessage(this.Description);
     }
     #endregion
 
     #region Методы класса 
-    public int[] CreateArgumentsForTask(int numberOfArgs) // каждый наследник создаёт аргументы, исходя из необходимого количества аргументов согласно задаче
+
+
+    public virtual string Execute() // Метод для выполнения решения задачи
+    {
+        return Result;
+    }
+
+     public int[] CreateArgumentsForTask(int numberOfArgs) // каждый наследник создаёт аргументы, исходя из необходимого количества аргументов согласно задаче
     {
         int[] args = new int[numberOfArgs];
 
@@ -35,24 +43,5 @@ public class HomeworkTask
         }
         return args;
     }
-
-    public virtual string Execute() // Метод для выполнения решения задачи
-    {
-        return string.Empty;
-    }
-
-    public virtual bool AskNeedToRepeatTask()
-    {
-        bool needToRepeatTask = GetYesOrNoInput(ask_to_repeat_task_msg) == true ? true : false;
-
-        if (needToRepeatTask)
-        {
-            this.Arguments = this.CreateArgumentsForTask(this.QuantityOfArguments); 
-            return needToRepeatTask;
-        }
-        else
-            return false;
-    }
-    
     #endregion
 }

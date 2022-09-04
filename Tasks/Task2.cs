@@ -6,15 +6,13 @@ public class Task2 : HomeworkTask
         Number = 2; // номер задачи согласно списку ДЗ 
         QuantityOfArguments = 2; // количество входных аргументов согласно тексту задачи 
         Description = $"Выполняется задача №{Number}: Программа на вход принимает два числа и выдаёт, какое число большее, а какое меньшее.";
-        
         ShowMessage(Description);
-
-        Arguments = CreateArgumentsForTask(QuantityOfArguments);
+        Arguments = CreateArgumentsForTask(this.QuantityOfArguments);
         
     }
 
     public override string Execute() //реализация задачи
-    {
+    {   
         int maxNumber = Arguments[0];
         int minNumber = Arguments[1];
 
@@ -29,8 +27,8 @@ public class Task2 : HomeworkTask
             minNumber = Arguments[0];
         }
         else
-            return $"Числа одинаковы {Arguments[0]} и {Arguments[1]}";
+            return Result=$"Числа одинаковы {Arguments[0]} и {Arguments[1]}";
 
-        return $"Наибольшим числом является: {maxNumber}. Наименьшим числом является: {minNumber}" ;
+        return Result=$"Наибольшим числом является: {maxNumber}. Наименьшим числом является: {minNumber}" ;
     }
 }

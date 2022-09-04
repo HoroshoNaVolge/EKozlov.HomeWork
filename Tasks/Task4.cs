@@ -20,6 +20,6 @@ public class Task4 : HomeworkTask
         for (int x = 0; x < Arguments.Length; x++)
             if (Arguments[x] > maxNumber) maxNumber = Arguments[x];
 
-        return $"Наибольшим числом из {Arguments[0]}, {Arguments[1]}, {Arguments[2]} является: " + (maxNumber);
+        return Result=$"Наибольшим числом из {Arguments[0]}, {Arguments[1]}, {Arguments[2]} является: " + (maxNumber);
     }
 }

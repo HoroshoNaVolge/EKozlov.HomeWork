@@ -17,13 +17,13 @@ public class Task10 : HomeworkTask
     {   // TODO ПЕРЕПИСАТЬ НА ВАЛИДАЦИЮ МОДЕЛИ
         if (Arguments[0]/100<1||Arguments[0]/100>10)
         {
-            return "Введено не трёхзначное число. Работа завершена.";
+            return Result="Введено не трёхзначное число. Работа завершена.";
         }
         //TODO ДОБАВИТЬ РЕКУРСИЮ НА ЗАПРОС ВВОДА ПРИ ВВОДЕ НЕТРЕХЗНАЧНОГО ЧИСЛА
         int tempNumber=Arguments[0]/10; // 124 => 12 : получаем двукратное целое число без остатка
         int secondNumeral= tempNumber%10; //12 => 2 // берём остаток от деления на 10 - это ответ.
 
-        return $"В трёхзначном числе {Arguments[0]}  вторая цифра => {secondNumeral}";
+        return Result=$"В трёхзначном числе {Arguments[0]}  вторая цифра => {secondNumeral}";
 
     }
 }

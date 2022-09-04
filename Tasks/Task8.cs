@@ -30,6 +30,6 @@ public class Task8 : HomeworkTask
         {
             listOfOdds += x.ToString() + " ";
         }
-        return $"Список всех чётных чисел от 1 до {Arguments[0]}: " + listOfOdds;
+        return Result=$"Список всех чётных чисел от 1 до {Arguments[0]}: " + listOfOdds;
     }
 }

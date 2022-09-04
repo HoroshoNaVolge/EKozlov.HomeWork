@@ -6,11 +6,12 @@ bool isFirstExecution = true; // при первичном запуске отм
 
 while (creator.AskToStart(isFirstExecution)) // Работа программы допускается после завершения конкретной задачи, возвращается в метод AskToStart (запуск выбора задач)
 {
-    HomeworkTask currentTask = creator.CreateTask(GetConsoleInput(invite_to_input_hometask_number_msg)); // инициализируем экземпляр конкретной задачи при помощи метода класса TaskCreator
+    HomeworkTask task = creator.CreateTask(GetConsoleInput(invite_to_input_hometask_number_msg)); // инициализируем экземпляр конкретной задачи при помощи метода класса TaskCreator
     // метод GetConsoleInput(msg) - перегрузка Console.Readline с доп. логикой - возвращает преобразованный int после проверки. Описан в MyLibrary.MyMethods.
-    ShowMessage(currentTask.Execute()); // передаём в метод ShowMessage (в данной реализации вывод на консоль) string-результат выполнения текущей задачи в методе Execute.
-    while(currentTask.AskNeedToRepeatTask())
-        ShowMessage(currentTask.Execute());
+    task.Execute(); // передаём в метод ShowMessage (в данной реализации вывод на консоль) string-результат выполнения текущей задачи в методе Execute.
+    ShowMessage(task.Result);
+    while(creator.AskToRepeatTask()) // после выполнения задачи проверяем необходимо ли повторно запустить ту же задачу (например с другими входными данными).
+        ShowMessage(creator.CurrentTask.Execute()); // выполняем повторно задачу. Создаётся новый экземпляр того же конкретного класса задачи.
 
-    isFirstExecution = false; // первичный запуск прошёл, меняем буль на false для вывода иного сообщения пользователю в дальнейшем
+    isFirstExecution = false; // первичный запуск программы прошёл, меняем буль на false для вывода иного сообщения пользователю в дальнейшем
 }

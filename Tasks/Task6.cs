@@ -17,8 +17,8 @@ public class Task6 : HomeworkTask
     {
         int checkNumberAsOdd = Arguments[0];
         if (checkNumberAsOdd % 2 == 0)
-            return "Число " + checkNumberAsOdd + " является чётным.";
+            return Result="Число " + checkNumberAsOdd + " является чётным.";
         else
-            return "Число " + checkNumberAsOdd + " НЕ является чётным.";
+            return Result="Число " + checkNumberAsOdd + " НЕ является чётным.";
     }
 }
