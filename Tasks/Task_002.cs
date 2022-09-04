@@ -9,7 +9,7 @@ public class Task_002 : HomeworkTask
 
         Description = $"Выполняется задача №{Number}: Программа на вход принимает два числа и выдаёт, какое число большее, а какое меньшее."; // описание задачи
 
-        ShowMessage(Description); // вывод в UI информации о выбранной задаче
+        ShowConsoleMessage(Description); // через делегат вывод в UI информации о выбранной задаче
 
         Arguments = CreateArgumentsForTask(QuantityOfArguments); // создание массива аргументов для данной задачи через ввод пользователем (метод родительского класса Homework) 
     }

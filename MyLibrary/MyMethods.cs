@@ -3,7 +3,8 @@ using static Message;
 
 public static class MyMethods // стат. класс для моими методами
 {
-    public static void ShowMessage(string msg) => Console.WriteLine(msg); // Метод вывода сообщений вызывает Консоль. Возможна замена в дальнейшем на другой UI.
+    public delegate void MessageHandler(string msg);
+    public static void ShowConsoleMessage(string msg) => Console.WriteLine(msg); // Метод вывода сообщений вызывает Консоль. Возможна замена в дальнейшем на другой UI.
 
     public static int GetConsoleInput(string message) //переопределен метод Console.Readline() для дополнительной логики и возможности выполнить сразу с методом Write
     {

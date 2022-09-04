@@ -9,7 +9,7 @@ public class Task_004 : HomeworkTask
 
         Description = $"Выполняется задача №{Number}: Программа принимает на вход три числа и выдаёт максимальное из этих чисел."; // описание задачи
 
-        ShowMessage(Description); // вывод в UI информации о выбранной задаче
+        ShowConsoleMessage(Description); // вывод в UI информации о выбранной задаче
 
         Arguments = CreateArgumentsForTask(QuantityOfArguments); // создание массива аргументов для данной задачи через ввод пользователем (метод родительского класса Homework) 
     }

@@ -10,7 +10,7 @@ public class Task_010 : HomeworkTask
 
         Description = $"Выполняется задача №{Number}: Программа принимает на вход трёхзначное число и на выходе показывает вторую цифру этого числа."; // описание задачи
 
-        ShowMessage(Description); // вывод в UI информации о выбранной задаче
+        ShowConsoleMessage(Description); // вывод в UI информации о выбранной задаче
 
         Arguments = CreateArgumentsForTask(QuantityOfArguments); // создание массива аргументов для данной задачи через ввод пользователем (метод родительского класса Homework) 
     }
