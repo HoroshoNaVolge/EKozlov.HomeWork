@@ -10,7 +10,7 @@ public static class MyConsole
     /// </summary>
     /// <param name="message"> Сообщение для вывода в консоль.</param>
     /// <returns></returns>
-    public static string? ReadLine(string message)  // Допускаем NULL при помощи <string?>.
+    public static string ReadLine(string message)  // Допускаем NULL при помощи <string?>.
     {
         System.Console.Write(message); // Выдаем сообщение в консоль. 
         return System.Console.ReadLine(); // Запрос ввода пользователя в консоль.

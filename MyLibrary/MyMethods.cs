@@ -13,6 +13,18 @@ public static class MyMethods
     public delegate void MessageHandler(string msg);
 
     /// <summary>
+    /// Делегат ввода данных из UI.
+    /// </summary>
+    /// <param name="msg">Сообщение для вывода в UI.</param>
+    public delegate int InputHandler(string msg);
+
+    /// <summary>
+    /// Делегат ввода 'да' или 'нет' из UI.
+    /// </summary>
+    /// <param name="msg">Сообщение для вывода в UI.</param>
+    public delegate bool YesOrNoInputHandler(string msg);
+  
+    /// <summary>
     /// Метод консольного вывода сообщений.
     /// </summary>
     /// <param name="msg">Сообщение для вывода.</param>
@@ -21,39 +33,36 @@ public static class MyMethods
     /// <summary>
     /// Метод ввода через консоль. Возвращает int после проверок и преобразования.
     /// </summary>
-    /// <param name="message">Одновременный вывод комментария в консоль. </param>
-    /// <returns></returns>
-
+    /// <param name="message">Cообщение для вывода в консоль. </param>
     public static int GetConsoleInput(string message)
     {
-        string? consoleInput = MyConsole.ReadLine(message); //  Кладём в переменную вводенные данные с консоли. Используем MyConsole для возможности одновременно использовать Console. Write
+        string consoleInput = MyConsole.ReadLine(message); //  Кладём в переменную вводенные данные с консоли. Используем MyConsole для возможности одновременно использовать Console. Write
 
         if (int.TryParse(consoleInput, out var parseResult)) // Проверка на допустимость преобразования введенных символов в тип int.  
             return parseResult; // преобразование возможно - возвращаем int 
         else
-            return GetConsoleInput(incorrect_input_msg); // преобразование невозможно - рекурсивно вызываем метод ввода, пока не будет корректного ввода
+            return GetConsoleInput(INVALID_INPUT_MSG); // преобразование невозможно - рекурсивно вызываем метод ввода, пока не будет корректного ввода
     }
+
     /// <summary>
-    /// Метод получения утвердительного или отрицательного ввода: 'y' или 'n'.
+    /// Метод получения через консоль утвердительного или отрицательного ввода: 'y' или 'n'.
     /// </summary>
     /// <param name="message"> Вывод в консоль комментария. </param>
-    /// <returns></returns>
-
     public static bool GetYesOrNoConsoleInput(string message)
     {
-        string? stringInput = MyConsole.ReadLine(message);
-        if (stringInput?.ToLower() == checkedYes) // если ввод "y/Y" - продолжаем
+        string stringInput = MyConsole.ReadLine(message);
+        if (stringInput?.ToLower() == CHECKED_YES) // если ввод "y/Y" - продолжаем
         {
             return true;
         }
-        else if (stringInput?.ToLower() == checkedNo) // если ввод "n/N" - завершаем.
+        else if (stringInput?.ToLower() == CHECKED_NO) // если ввод "n/N" - завершаем.
         {
             return false;
         }
 
         else // если введен другой символ/символы
         {
-            return GetYesOrNoConsoleInput(not_chosen_yes_or_no_msg); // рекурсивный вызов ввода y или n
+            return GetYesOrNoConsoleInput(NOT_CHOSEN_YES_OR_NO_MSG); // рекурсивный вызов ввода y или n
         }
     }
 }

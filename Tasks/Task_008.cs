@@ -1,17 +1,12 @@
-using static MyLibrary.MyMethods;
 public class Task_008 : HomeworkTask
 {
     public Task_008() : base()
     {
         Number = 8; // номер задачи согласно списку ДЗ 
 
-        QuantityOfArguments = 1; // количество входных аргументов согласно тексту задачи 
+        QuantityOfArguments = 1; // количество аргументов согласно тексту задачи 
 
         Description = $"Выполняется задача №{Number}: Программа на вход принимает число (N), а на выходе показывает все чётные числа от 1 до N."; // описание задачи
-
-        ConsoleMessage(Description); // вывод в UI информации о выбранной задаче
-
-        Arguments = CreateArgumentsForTask(QuantityOfArguments); // создание массива аргументов для данной задачи через ввод пользователем (метод родительского класса Homework) 
     } 
 
     public override void Execute() //реализация задачи

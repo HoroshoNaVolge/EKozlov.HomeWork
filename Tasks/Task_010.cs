@@ -1,23 +1,19 @@
 using static MyLibrary.MyMethods;
-using System.ComponentModel.DataAnnotations;
+
 public class Task_010 : HomeworkTask
 {
     public Task_010() : base()
     {
         Number = 10; // номер задачи согласно списку ДЗ 
 
-        QuantityOfArguments = 1; // количество входных аргументов согласно тексту задачи 
+        QuantityOfArguments = 1; // количество аргументов согласно тексту задачи 
 
         Description = $"Выполняется задача №{Number}: Программа принимает на вход трёхзначное число и на выходе показывает вторую цифру этого числа."; // описание задачи
-
-        ConsoleMessage(Description); // вывод в UI информации о выбранной задаче
-
-        Arguments = CreateArgumentsForTask(QuantityOfArguments); // создание массива аргументов для данной задачи через ввод пользователем (метод родительского класса Homework) 
     }
 
     public override void Execute() //реализация задачи
     {
-        // TODO ПЕРЕПИСАТЬ НА ВАЛИДАЦИЮ МОДЕЛИ
+        //TODO: переписать на валидацию модели, заменить конкретный метод вывода в консоль на делегат.
         while ((Arguments[0] / 100 < 1 || Arguments[0] / 100 > 10)) // проверка, что число трёхзначное.
             Arguments[0] = GetConsoleInput("Введено не трёхзначное число. Повторите ввод: ");
 
