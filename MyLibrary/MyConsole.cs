@@ -1,10 +1,18 @@
 ﻿namespace MyLibrary; 
 
-public static class MyConsole // обёртка для возможности записи в одну строку запроса на ввод(Write) и ReadLine 
+/// <summary>
+/// Обёртка для типа System.Console
+/// </summary>
+public static class MyConsole
 {
-    public static string? ReadLine(string message) // перегрузка с аргументом, который необходимо вывести, как сообщение при помощи Write. Допускаем NULL при помощи <string?>
+    /// <summary>
+    /// Перегруженный метод с аргументом для вывода в консоль одновременно с запросом ввода пользователя 
+    /// </summary>
+    /// <param name="message"> Сообщение для вывода в консоль.</param>
+    /// <returns></returns>
+    public static string? ReadLine(string message)  // Допускаем NULL при помощи <string?>.
     {
-        System.Console.Write(message); 
-        return System.Console.ReadLine();
+        System.Console.Write(message); // Выдаем сообщение в консоль. 
+        return System.Console.ReadLine(); // Запрос ввода пользователя в консоль.
     }
 }

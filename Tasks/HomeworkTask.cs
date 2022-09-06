@@ -6,37 +6,62 @@ public class HomeworkTask
 {
     // Родительский класс задачи из ДЗ.
     #region Свойства родительского класса
-    public int Number { get; protected set; } // свойство номера домашнего задания
-
-    public string Description { get; protected set; } // свойство описания задачи (текст задачи)
-
-    public int[] Arguments { get; protected set; } // свойство, содержащее массив аргументов (целых чисел) для выполнения задачи
-
+    /// <summary>
+    /// Номер задачи согласно списку ДЗ
+    /// </summary>
+    public int Number { get; protected set; }
+    /// <summary>
+    /// Описание (текст) задачи.
+    /// </summary>
+    /// <value></value>
+    public string Description { get; protected set; }
+    /// <summary>
+    /// Массив аргументов (целых чисел) для выполнения задачи.
+    /// </summary>
+    /// <value></value>
+    public int[] Arguments { get; protected set; }
+    /// <summary>
+    /// Количество аргументов для задачи.
+    /// </summary>
+    /// <value></value>
     public int QuantityOfArguments { get; protected set; } // свойство, содержащее количество аргументов для задачи
-
+    /// <summary>
+    /// Результат выполнения задачи.
+    /// </summary>
+    /// <value></value>
     public string Result { get; protected set; } // свойство с результатом выполнения задачи
 
     #endregion
 
     #region Конструктор родительского типа
-    public HomeworkTask() // конструктор класса домашнего задания
+    /// <summary>
+    /// Конструктор класса задачи.
+    /// </summary>
+    public HomeworkTask() 
     {
-        Result=string.Empty; // для исключения null-reference
-        Arguments=Array.Empty<int>(); // для исключения null-reference
-        Description=string.Empty; // для исключения null-reference
+        Result = string.Empty; // для исключения null-reference
+        Arguments = Array.Empty<int>(); // для исключения null-reference
+        Description = string.Empty; // для исключения null-reference
     }
     #endregion
 
     #region Методы родительского класса 
-
-    public virtual void Execute() // Метод для выполнения решения задачи.
+    /// <summary>
+    /// Метод выполнения решения задачи.
+    /// </summary>
+    public virtual void Execute()
     {
         // в родительском классе метод без конкретной реализации.
     }
 
-     public int[] CreateArgumentsForTask(int numberOfArgs) // каждый наследник создаёт аргументы, исходя из необходимого количества аргументов согласно задаче.
+    /// <summary>
+    /// Метод создания аргументов задачи через ввод данных пользователем.
+    /// </summary>
+    /// <param name="numberOfArgs">Количество необходимых аргументов задачи. </param>
+    /// <returns></returns>
+    public int[] CreateArgumentsForTask(int numberOfArgs) // каждый наследник создаёт аргументы, исходя из необходимого количества аргументов согласно задаче.
     {
-        int[] args = new int[numberOfArgs];
+        int[] args = new int[numberOfArgs]; // 
 
         for (int x = 0; x < args.Length; x++)
         {

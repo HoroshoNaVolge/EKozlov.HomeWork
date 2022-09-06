@@ -1,12 +1,30 @@
 namespace MyLibrary;
 using static Message;
 
-public static class MyMethods // стат. класс для моими методами
+/// <summary>
+/// Статический класс дополнительных методов.
+/// </summary>
+public static class MyMethods
 {
+    /// <summary>
+    /// Делегат вывода сообщения в UI.
+    /// </summary>
+    /// <param name="msg">Сообщение для вывода в UI.</param>
     public delegate void MessageHandler(string msg);
-    public static void ConsoleMessage(string msg) => Console.WriteLine(msg); // Метод вывода сообщений вызывает Консоль. Возможна замена в дальнейшем на другой UI.
 
-    public static int GetConsoleInput(string message) //переопределен метод Console.Readline() для дополнительной логики и возможности выполнить сразу с методом Write
+    /// <summary>
+    /// Метод консольного вывода сообщений.
+    /// </summary>
+    /// <param name="msg">Сообщение для вывода.</param>
+    public static void ConsoleMessage(string msg) => Console.WriteLine(msg);
+
+    /// <summary>
+    /// Метод ввода через консоль. Возвращает int после проверок и преобразования.
+    /// </summary>
+    /// <param name="message">Одновременный вывод комментария в консоль. </param>
+    /// <returns></returns>
+
+    public static int GetConsoleInput(string message)
     {
         string? consoleInput = MyConsole.ReadLine(message); //  Кладём в переменную вводенные данные с консоли. Используем MyConsole для возможности одновременно использовать Console. Write
 
@@ -15,8 +33,13 @@ public static class MyMethods // стат. класс для моими мето
         else
             return GetConsoleInput(incorrect_input_msg); // преобразование невозможно - рекурсивно вызываем метод ввода, пока не будет корректного ввода
     }
+    /// <summary>
+    /// Метод получения утвердительного или отрицательного ввода: 'y' или 'n'.
+    /// </summary>
+    /// <param name="message"> Вывод в консоль комментария. </param>
+    /// <returns></returns>
 
-    public static bool GetYesOrNoInput(string message) // метод получания ввода "y" (т.е. true) или "n" (т.е. false) с проверкой и рекурсией при некорректном вводе "y" или "n"
+    public static bool GetYesOrNoConsoleInput(string message)
     {
         string? stringInput = MyConsole.ReadLine(message);
         if (stringInput?.ToLower() == checkedYes) // если ввод "y/Y" - продолжаем
@@ -30,7 +53,7 @@ public static class MyMethods // стат. класс для моими мето
 
         else // если введен другой символ/символы
         {
-            return GetYesOrNoInput(not_chosen_yes_or_no_msg); // рекурсивный вызов ввода y или n
+            return GetYesOrNoConsoleInput(not_chosen_yes_or_no_msg); // рекурсивный вызов ввода y или n
         }
     }
 }
