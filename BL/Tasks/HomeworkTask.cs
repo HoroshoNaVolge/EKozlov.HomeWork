@@ -24,6 +24,12 @@ public abstract class HomeworkTask
     /// </summary>
     /// <value></value>
     public int QuantityOfArguments { get; protected set; } // свойство, содержащее количество аргументов для задачи
+    
+    /// <summary>
+    /// Необходимо ли деление аргументов на ггруппы.
+    /// </summary>
+    /// <value></value>
+    public bool GroupedArguemnts{get; protected set;}
     /// <summary>
     /// Результат выполнения задачи.
     /// </summary>

@@ -14,7 +14,7 @@ public class Task_019 : HomeworkTask
 
     public override void Execute() //реализация задачи
     {
-        if ((Arguments[0] / 100 < 100 || Arguments[0] / 100 >= 1000)) // проверка, что число трёхзначное.
+        if ((Arguments[0] / 100 < 100 || Arguments[0] / 100 >= 1000)) // проверка, что число пятизначное.
             Result = $"{Arguments[0]} не пятизначное число.";
         else
         {
@@ -22,7 +22,7 @@ public class Task_019 : HomeworkTask
 
             bool palyndrome;
 
-            if (charArray[0] == charArray[4])
+            if (charArray[0] == charArray[4]) // реализуем конкретно для пятизначного числа, как в условии задачи.
 
                 if (charArray[1] == charArray[3])
 
@@ -31,6 +31,7 @@ public class Task_019 : HomeworkTask
                 else palyndrome = false;
 
             else palyndrome = false;
+            
             Result = palyndrome ? $"Число {Arguments[0]} является палиндромом" : $"Число {Arguments[0]} не является палиндромом.";
         }
 

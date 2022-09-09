@@ -2,7 +2,7 @@
 using static EKozlov.HomeWork.BL.MessageConstants;
 
 /// <summary>
-/// Обёртка для типа System.Console
+/// Консольный UI.
 /// </summary>
 public class Console_UI : IView
 {
@@ -27,7 +27,7 @@ public class Console_UI : IView
     public bool GetYesOrNoInput(string message)
     {
         string stringInput = ReadLine(message);
-        if (stringInput?.ToLower() == CHECKED_YES) // если ввод "y/Y" - продолжаем
+        if (stringInput.ToLower() == CHECKED_YES) // если ввод "y/Y" - продолжаем
         {
             return true;
         }
@@ -42,8 +42,11 @@ public class Console_UI : IView
         }
     }
 
+    /// <summary>
+    /// Метод вывода сообщений в консоль.
+    /// </summary>
+    /// <param name="message">Сообщение.</param>
     public void ShowMessage(string message) => System.Console.WriteLine(message);
-
 
     /// <summary>
     /// Перегруженный метод с аргументом для вывода в консоль одновременно с запросом ввода пользователя 
@@ -55,5 +58,4 @@ public class Console_UI : IView
         System.Console.Write(message); // Выдаем сообщение в консоль. 
         return System.Console.ReadLine(); // Запрос ввода пользователя в консоль.
     }
-
 }

@@ -9,6 +9,8 @@ public class Task_021 : HomeworkTask
         QuantityOfArguments = 6; // количество аргументов согласно тексту задачи 
 
         Description = $"Выполняется задача №{Number}: принимает на вход координаты двух точек и находит расстояние между ними в 3D пространстве.";
+
+        GroupedArguemnts=true; // по условию задачи у нас 2 группу аргументов. Используется для выдачи инструкций пользователю при вводе им аргументов в CreateArguments.
     }
 
     public override void Execute() //реализация задачи
@@ -23,6 +25,6 @@ public class Task_021 : HomeworkTask
 
         double diff_a_b = Math.Sqrt(diff_Pow_Xa_Xb + diff_Pow_Ya_Yb + diff_Pow_Za_Zb);
 
-        Result = $"Расстояние между точками : {diff_a_b}";
+        Result = $"Расстояние между точками A({Arguments[0]},{Arguments[1]},{Arguments[2]}), B({Arguments[3]},{Arguments[4]},{Arguments[5]}) в 3D пространстве =  {diff_a_b}";
     }
 }

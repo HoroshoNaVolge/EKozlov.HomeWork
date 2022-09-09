@@ -1,35 +1,36 @@
 using EKozlov.HomeWork.View;
+using static EKozlov.HomeWork.View.IView;
 
 namespace EKozlov.HomeWork.BL;
 public class HomeWorkManager
 {
     #region Приватные поля.
-    private static HomeWorkManager _manager; // Паттерн Singleton. Приватная переменная экзмемпляра TaskManager.
+    private static HomeWorkManager _manager; // Паттерн Singleton. Приватная статич. переменная экзмемпляра TaskManager.
     private TaskExecutor _taskExecutor; // Ссылка на экземпляр исполнителя задач.
-    private bool firstExecution = true; // Первый запуск. Значение по умолчанию true. 
+    private bool _firstExecution = true; // Первый запуск. Значение по умолчанию true. 
     #endregion
 
     #region Свойства класса TaskManager
 
     /// <summary>
-    /// Свойство экземпляра конкретной задачи.
+    /// Ссылка на экземпляр конкретной задачи.
     /// </summary>
     public HomeworkTask CurrentTask { get; private set; }
 
     /// <summary>
-    /// Свойство делегата вывода сообщений в UI.
+    /// Делегат вывода сообщений в UI.
     /// </summary>
-    public IView.MessageHandler ShowMessage { get; }
+    public MessageHandler ShowMessage { get; }
 
     /// <summary>
-    /// Свойство делегата ввода данных из UI.
+    /// Делегат ввода данных из UI.
     /// </summary>
-    public IView.InputHandler GetIntegerInput { get; }
+    public InputHandler GetIntegerInput { get; }
 
     /// <summary>
-    /// Свойство делегата получения "да" или "нет" от пользователя.
+    /// Делегат получения "да" или "нет" от пользователя.
     /// </summary>
-    public IView.YesOrNoInputHandler GetYesOrNoInput { get; }
+    public YesOrNoInputHandler GetYesOrNoInput { get; }
 
     #endregion
 
@@ -40,7 +41,7 @@ public class HomeWorkManager
         ShowMessage = userInterface.ShowMessage; // присваиваем делегат вывода сообщений нашему readonly-свойству.
         GetIntegerInput = userInterface.GetIntegerInput; // присваиваем делегат ввода данных нашему readonly-свойству.
         GetYesOrNoInput = userInterface.GetYesOrNoInput; // присваиваем делегат получения "да" или "нет" от пользователя нашему readonly-свойству.
-        _taskExecutor = new TaskExecutor(GetIntegerInput); // инициализируем экземпляр исполнителя задач, передаём ему метод запроса данных из UI.
+        _taskExecutor = new TaskExecutor(GetIntegerInput, ShowMessage); // инициализируем экземпляр исполнителя задач, передаём ему метод запроса данных из UI и вывода сообщений в UI.
     }
 
     /// <summary>
@@ -64,42 +65,36 @@ public class HomeWorkManager
     {
         while (NeedToContinueProgram()) // пока необходимо продолжать выполнение программы (менеджера задач)
         {
-            int taskNumber = GetIntegerInput.Invoke(MessageConstants.INVITE_TO_INPUT_TASK_NUMBER_MSG);
+            int taskNumber = GetIntegerInput.Invoke(MessageConstants.INVITE_TO_INPUT_TASK_NUMBER_MSG); // получаем ввод номера задачи от пользователя.
 
             CreateTask(taskNumber); // создаём задачу. 
 
-            if (CurrentTask != null)
+            if (CurrentTask != null) // если задача по введенному номеру предусмотрена и создана.
             {
                 ShowMessage.Invoke(CurrentTask.Description);// выводим в UI текст созданной задачи.
 
-                ShowMessage.Invoke(_taskExecutor.ExecuteTask(CurrentTask)); // выводим в UI результат выполнения задачи.
-
+                ShowMessage.Invoke(_taskExecutor.ExecuteTask(CurrentTask)); // выполняем через класс исполнителя задач и выводим в UI результат выполнения.
 
                 while (AskToRepeatTask()) // пока требуется повторение выполненной задачи (текущей).
                 {
-                    CreateTask(taskNumber); // создаём задачу. 
+                    CreateTask(taskNumber); // создаём задачу заново. 
 
                     ShowMessage.Invoke(CurrentTask.Description); // выводим в UI текст созданной задачи.
 
                     ShowMessage.Invoke(_taskExecutor.ExecuteTask(CurrentTask)); // выводим в UI результат выполнения задачи.
-
                 }
             }
-            else ShowMessage.Invoke(MessageConstants.INVALID_TASK_NUMBER_MSG);
+            else ShowMessage.Invoke(taskNumber+MessageConstants.INVALID_TASK_NUMBER_MSG); // иначе выводим сообщение, что задачи с таким номером не предусмотрено.
         }
     }
 
-    /// <summary>
-    /// Проверка необходимости продолжения программы.
-    /// </summary>
-    /// <returns></returns>
-    private bool NeedToContinueProgram()
+    private bool NeedToContinueProgram() // запрос на продолжения работы менеджера домашних заданий.
 
     {
-        if (firstExecution) // если это первый запуск программы. По умолчанию true.
+        if (_firstExecution) // если это первый запуск программы. По умолчанию true.
         {
             ShowMessage.Invoke(MessageConstants.WELCOME_MSG); // выводит приветствие пользователю.
-            firstExecution = false; // указываем, что первый запуск прошёл.
+            _firstExecution = false; // указываем, что первый запуск прошёл.
             return true; // возвращает true, так как это первый запуск программы и выполнение необходимо по умолчанию.
         }
 
@@ -115,18 +110,14 @@ public class HomeWorkManager
         }
     }
 
-    /// <summary>
-    /// проверка на необходимость повторения той же (текущей) задачи.
-    /// </summary>
-    /// <returns></returns>
-    private bool AskToRepeatTask()
+    private bool AskToRepeatTask() // запрос повтора выполнения текущей задачи.
     {
         if (GetYesOrNoInput.Invoke(MessageConstants.ASK_TO_REPEAT_TASK_MSG))
             return true; // если ответ пользователя на запрос повторения задачи положительный
         else return false;
     }
 
-    private void CreateTask(int taskNumber)
+    private void CreateTask(int taskNumber) // созадние экземпляра класса конкретной задачи.
     {
         switch (taskNumber) // новые задачи добавляются путем внесения кейса (номера) в блок switch.
         {
@@ -167,5 +158,4 @@ public class HomeWorkManager
         }
     }
     #endregion
-
 }

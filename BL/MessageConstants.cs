@@ -20,7 +20,7 @@ public static class MessageConstants
     /// <summary>
     /// Сообщение об отсутствующей задаче по указанному номеру.
     /// </summary>
-    public const string INVALID_TASK_NUMBER_MSG = "Такой номер задачи отсутствует в актуальном задании. \nНомера актуальных задач описаны в 'README.md' ";
+    public const string INVALID_TASK_NUMBER_MSG = " - такой номер задачи отсутствует в актуальном задании. \nНомера актуальных задач описаны в 'README.md' ";
     /// <summary>
     /// Сообщение-приветствие пользователя.
     /// </summary>

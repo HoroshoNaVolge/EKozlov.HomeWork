@@ -1,5 +1,4 @@
 using EKozlov.HomeWork.BL;
-using static EKozlov.HomeWork.View.Console_UI;
 
 public class Task_015 : HomeworkTask
 {

@@ -1,33 +1,45 @@
+namespace EKozlov.HomeWork.View;
 public interface IView
 {
     /// <summary>
-    /// Метод ввода 
+    /// Вывод сообщения в UI.
     /// </summary>
-    /// <param name="message"></param>
-    /// <returns></returns>
-    public int GetIntegerInput(string message);
-
-    public bool GetYesOrNoInput(string message);
-
+    /// <param name="message">Сообщение для вывода.</param>
     public void ShowMessage(string message);
 
+    /// <summary>
+    /// Ввод пользователем целого числа в UI.
+    /// </summary>
+    /// <param name="message">Сообщение для вывода в UI.</param>
+    /// <returns> int после parse().</returns>
+    public int GetIntegerInput(string message);
+
+    /// <summary>
+    /// Получение от пользователя "да" или "нет"
+    /// </summary>
+    /// <param name="message">Сообщение для вывода в UI.</param>
+    /// <returns>true, если "да".</returns>
+    public bool GetYesOrNoInput(string message);
+
+
+    /// <summary>
+    /// Делегат вывода сообщения в UI.
+    /// </summary>
+    /// <param name="msg">Сообщение для вывода в UI.</param>
     public delegate void MessageHandler(string msg);
 
     /// <summary>
-    /// Делегат ввода данных из UI. Возвращает INT.
+    /// Делегат ввода пользователем целого числа в UI.
     /// </summary>
-    /// <param name="msg">Сообщение для вывода в UI.</param>
+    /// <param name="message">Сообщение для вывода в UI.</param>
+    /// <returns> int после parse().</returns>
     public delegate int InputHandler(string msg);
 
     /// <summary>
-    /// Делегат ввода 'да' или 'нет' из UI.
+    /// Делегат получения ввода пользователеем "да" или "нет"
     /// </summary>
-    /// <param name="msg">Сообщение для вывода в UI.</param>
+    /// <param name="message">Сообщение для вывода в UI.</param>
+    /// <returns>true, если "да".</returns>
     public delegate bool YesOrNoInputHandler(string msg);
-
-    /// <summary>
-    /// Метод консольного вывода сообщений.
-    /// </summary>
-    /// <param name="msg">Сообщение для вывода.</param>
 }
 
