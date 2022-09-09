@@ -1,9 +1,9 @@
-namespace MyLibrary;
+namespace EKozlov.HomeWork.BL;
 
 /// <summary>
 /// Константы с текстом сообщений для вывода в UI.
 /// </summary>
-public static class Message
+public static class MessageConstants
 {
     /// <summary>
     /// Сообщение о некорректном вводе числа.

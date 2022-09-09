@@ -1,3 +1,5 @@
+using EKozlov.HomeWork.BL;
+
 public class Task_002 : HomeworkTask
 {
     public Task_002() : base()

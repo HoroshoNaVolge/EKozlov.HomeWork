@@ -1,6 +1,7 @@
 /// <summary>
 /// Абстрактный родительский класс задачи.
 /// </summary>
+namespace EKozlov.HomeWork.BL;
 public abstract class HomeworkTask
 {
     #region Свойства родительского класса

@@ -1,5 +1,6 @@
-﻿using static MyLibrary.MyMethods; // подключаем дополнительные методы.
+﻿using EKozlov.HomeWork.BL;
+using EKozlov.HomeWork.View;
 
-TaskManager taskManager = TaskManager.getInstance(ConsoleMessage, GetConsoleInput, GetYesOrNoConsoleInput); // получаем экземпляр менеджера задач (паттерн Singleton). В данной реализации передаем методы работы с консолью.
+HomeWorkManager taskManager = HomeWorkManager.getInstance(new Console_UI()); // получаем экземпляр менеджера домашних заданий. В данной реализации передаем параметром Консольный UI.
 
-taskManager.Run(); // запускаем выполнение конкретной задачи. Работаем через свойство CurrentTask класса TaskManager, а не напрямую с классом HomeworkTask.
+taskManager.Run(); // запускаем выполнение менеджера домашних заданий.
