@@ -4,7 +4,7 @@ using static EKozlov.HomeWork.BL.MessageConstants;
 /// <summary>
 /// Консольный UI.
 /// </summary>
-public class Console_UI : IView
+public class ConsoleUI : IView
 {
     /// <summary>
     /// Метод ввода через консоль. Возвращает int после проверок и преобразования.
@@ -17,7 +17,7 @@ public class Console_UI : IView
         if (int.TryParse(consoleInput, out var parseResult)) // Проверка на допустимость преобразования введенных символов в тип int.  
             return parseResult; // преобразование возможно - возвращаем int 
         else
-            return GetIntegerInput(INVALID_INPUT_MSG); // преобразование невозможно - рекурсивно вызываем метод ввода, пока не будет корректного ввода
+            return GetIntegerInput(InvalidInput); // преобразование невозможно - рекурсивно вызываем метод ввода, пока не будет корректного ввода
     }
 
     /// <summary>
@@ -27,18 +27,18 @@ public class Console_UI : IView
     public bool GetYesOrNoInput(string message)
     {
         string stringInput = ReadLine(message);
-        if (stringInput.ToLower() == CHECKED_YES) // если ввод "y/Y" - продолжаем
+        if (stringInput.ToLower() == CheckYes) // если ввод "y/Y" - продолжаем
         {
             return true;
         }
-        else if (stringInput?.ToLower() == CHECKED_NO) // если ввод "n/N" - завершаем.
+        else if (stringInput?.ToLower() == CheckNo) // если ввод "n/N" - завершаем.
         {
             return false;
         }
 
         else // если введен другой символ/символы
         {
-            return GetYesOrNoInput(NOT_CHOSEN_YES_OR_NO_MSG); // рекурсивный вызов ввода y или n
+            return GetYesOrNoInput(NotYesOrNo); // рекурсивный вызов ввода y или n
         }
     }
 

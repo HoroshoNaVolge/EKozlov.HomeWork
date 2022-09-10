@@ -1,8 +1,8 @@
 using EKozlov.HomeWork.BL;
 
-public class Task_004 : HomeworkTask
+public class Task004 : HomeworkTask
 {
-    public Task_004() : base()
+    public Task004() : base()
     {
         Number = 4;
 

@@ -1,8 +1,8 @@
 using EKozlov.HomeWork.BL;
 
-public class Task_013 : HomeworkTask
+public class Task013 : HomeworkTask
 {
-    public Task_013() : base()
+    public Task013() : base()
     {
         Number = 13; // номер задачи согласно списку ДЗ 
 

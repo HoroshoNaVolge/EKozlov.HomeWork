@@ -65,7 +65,7 @@ public class HomeWorkManager
     {
         while (NeedToContinueProgram()) // пока необходимо продолжать выполнение программы (менеджера задач)
         {
-            int taskNumber = GetIntegerInput.Invoke(MessageConstants.INVITE_TO_INPUT_TASK_NUMBER_MSG); // получаем ввод номера задачи от пользователя.
+            int taskNumber = GetIntegerInput.Invoke(MessageConstants.InviteInputTask); // получаем ввод номера задачи от пользователя.
 
             CreateTask(taskNumber); // создаём задачу. 
 
@@ -84,7 +84,7 @@ public class HomeWorkManager
                     ShowMessage.Invoke(_taskExecutor.ExecuteTask(CurrentTask)); // выводим в UI результат выполнения задачи.
                 }
             }
-            else ShowMessage.Invoke(taskNumber+MessageConstants.INVALID_TASK_NUMBER_MSG); // иначе выводим сообщение, что задачи с таким номером не предусмотрено.
+            else ShowMessage.Invoke(taskNumber+MessageConstants.InvalidTaskNumber); // иначе выводим сообщение, что задачи с таким номером не предусмотрено.
         }
     }
 
@@ -93,18 +93,18 @@ public class HomeWorkManager
     {
         if (_firstExecution) // если это первый запуск программы. По умолчанию true.
         {
-            ShowMessage.Invoke(MessageConstants.WELCOME_MSG); // выводит приветствие пользователю.
+            ShowMessage.Invoke(MessageConstants.Welcome); // выводит приветствие пользователю.
             _firstExecution = false; // указываем, что первый запуск прошёл.
             return true; // возвращает true, так как это первый запуск программы и выполнение необходимо по умолчанию.
         }
 
         else // если это не первый запуск программы, т.е. уже выполненена хотя бы 1 (одна) задача.
         {
-            if (GetYesOrNoInput.Invoke(MessageConstants.ASK_TO_CONTINUE_MSG)) // запрос на продолжение (если ввод пользователя положительный, возвращает true).
+            if (GetYesOrNoInput.Invoke(MessageConstants.AskContinue)) // запрос на продолжение (если ввод пользователя положительный, возвращает true).
                 return true;
             else // если пользователь не хочет продолжать (т.е. ввод пользователя отрицательный),
             {
-                ShowMessage.Invoke(MessageConstants.GOODBYE_MSG); // выводит прощальное сообщение,
+                ShowMessage.Invoke(MessageConstants.GoodBye); // выводит прощальное сообщение,
                 return false; // возвращает false.
             }
         }
@@ -112,7 +112,7 @@ public class HomeWorkManager
 
     private bool AskToRepeatTask() // запрос повтора выполнения текущей задачи.
     {
-        if (GetYesOrNoInput.Invoke(MessageConstants.ASK_TO_REPEAT_TASK_MSG))
+        if (GetYesOrNoInput.Invoke(MessageConstants.AskRepeat))
             return true; // если ответ пользователя на запрос повторения задачи положительный
         else return false;
     }
@@ -122,34 +122,34 @@ public class HomeWorkManager
         switch (taskNumber) // новые задачи добавляются путем внесения кейса (номера) в блок switch.
         {
             case 2:
-                CurrentTask = new Task_002(); // создание экземпляра задачи №2.
+                CurrentTask = new Task002(); // создание экземпляра задачи №2.
                 break;
             case 4:
-                CurrentTask = new Task_004(); // создание экземпляра задачи №4.
+                CurrentTask = new Task004(); // создание экземпляра задачи №4.
                 break;
             case 6:
-                CurrentTask = new Task_006(); // создание экземпляра задачи №6.
+                CurrentTask = new Task006(); // создание экземпляра задачи №6.
                 break;
             case 8:
-                CurrentTask = new Task_008(); // создание экземпляра задачи №8.
+                CurrentTask = new Task008(); // создание экземпляра задачи №8.
                 break;
             case 10:
-                CurrentTask = new Task_010(); // создание экземпляра задачи №10.
+                CurrentTask = new Task010(); // создание экземпляра задачи №10.
                 break;
             case 13:
-                CurrentTask = new Task_013(); // создание экземпляра задачи №13.
+                CurrentTask = new Task013(); // создание экземпляра задачи №13.
                 break;
             case 15:
-                CurrentTask = new Task_015(); // создание экземпляра задачи №15.
+                CurrentTask = new Task015(); // создание экземпляра задачи №15.
                 break;
             case 19:
-                CurrentTask = new Task_019(); // создание экземпляра задачи №15.
+                CurrentTask = new Task019(); // создание экземпляра задачи №15.
                 break;
             case 21:
-                CurrentTask = new Task_021(); // создание экземпляра задачи №15.
+                CurrentTask = new Task021(); // создание экземпляра задачи №15.
                 break;
             case 23:
-                CurrentTask = new Task_023(); // создание экземпляра задачи №15.
+                CurrentTask = new Task023(); // создание экземпляра задачи №15.
                 break;
 
             default: // если никакой актуальный номер не введен.

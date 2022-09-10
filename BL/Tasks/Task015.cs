@@ -1,8 +1,8 @@
 using EKozlov.HomeWork.BL;
 
-public class Task_015 : HomeworkTask
+public class Task015 : HomeworkTask
 {
-    public Task_015() : base()
+    public Task015() : base()
     {
         Number = 15; // номер задачи согласно списку ДЗ 
 
@@ -26,6 +26,5 @@ public class Task_015 : HomeworkTask
             else
                 Result = $" {Arguments[0]}  =>  " + " нет, это не выходной."; // если false, то также присваиваем свойству Result результат выполнения метода Execute
         }
-
     }
 }
