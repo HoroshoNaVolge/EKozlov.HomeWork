@@ -41,9 +41,9 @@ internal class TaskExecutor
 
     private void CreateArgumentsForTask(int quantityOfArgs) // метод создания аргументов для задачи.
     {
-        bool groupedArguments = _homeworkTask.GroupedArguemnts; // определяет, нужно ли делить аргументы на группы (только для соответствующего отображения в консоль)
+        bool groupedArguments = _homeworkTask.GroupedArguemnts; // определяет, нужно ли делить аргументы на группы (только для соответствующего отображения в консоль).
 
-        _homeworkTask.Arguments = new int[quantityOfArgs]; // объявляем массив элементов (аргументы для выполнения операций в конкретной задаче)
+        _homeworkTask.Arguments = new int[quantityOfArgs]; // объявляем массив элементов (аргументы для выполнения операций в конкретной задаче).
 
         if (groupedArguments) _messageHandler.Invoke($"Введите первые {quantityOfArgs / 2} значения: ");
 
@@ -52,6 +52,7 @@ internal class TaskExecutor
             if (groupedArguments) // если это группы аргументов
                 if (i == quantityOfArgs / 2) // когда набираем половину необходимых аргументов  
                     _messageHandler.Invoke($"Введите следующие {quantityOfArgs / 2} значения "); // просто отображаем в UI. Пока этого достаточно.
+           
             _homeworkTask.Arguments[i] = _inputHandler.Invoke(MessageConstants.InviteInputNumber); // итеративно запрашиваем аргумент через ввод пользователя в UI.                                                            
         }
     }

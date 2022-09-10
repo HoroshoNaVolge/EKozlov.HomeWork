@@ -84,7 +84,7 @@ public class HomeWorkManager
                     ShowMessage.Invoke(_taskExecutor.ExecuteTask(CurrentTask)); // выводим в UI результат выполнения задачи.
                 }
             }
-            else ShowMessage.Invoke(taskNumber+MessageConstants.InvalidTaskNumber); // иначе выводим сообщение, что задачи с таким номером не предусмотрено.
+            else ShowMessage.Invoke(taskNumber + MessageConstants.InvalidTaskNumber); // иначе выводим сообщение, что задачи с таким номером не предусмотрено.
         }
     }
 
@@ -143,13 +143,22 @@ public class HomeWorkManager
                 CurrentTask = new Task015(); // создание экземпляра задачи №15.
                 break;
             case 19:
-                CurrentTask = new Task019(); // создание экземпляра задачи №15.
+                CurrentTask = new Task019(); // создание экземпляра задачи №19.
                 break;
             case 21:
-                CurrentTask = new Task021(); // создание экземпляра задачи №15.
+                CurrentTask = new Task021(); // создание экземпляра задачи №21.
                 break;
             case 23:
-                CurrentTask = new Task023(); // создание экземпляра задачи №15.
+                CurrentTask = new Task023(); // создание экземпляра задачи №23.
+                break;
+            case 25:
+                CurrentTask = new Task025(); // создание экземпляра задачи №25.
+                break;
+            case 27:
+                CurrentTask = new Task027(); // создание экземпляра задачи №27.
+                break;
+            case 29:
+                CurrentTask = new Task029(); // создание экземпляра задачи №27.
                 break;
 
             default: // если никакой актуальный номер не введен.
