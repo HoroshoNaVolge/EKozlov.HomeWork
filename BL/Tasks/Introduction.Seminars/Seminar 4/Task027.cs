@@ -11,8 +11,7 @@ public class Task027 : HomeworkTask
         Description = $"Выполняется задача №{Number}: Программа принимает на вход число и выдаёт сумму цифр в числе.";
     }
 
-    public override void Execute() //реализация задачи
-    {
-        Result = $"Сумма всех цифр в числе {Arguments[0]}= " + Arguments[0].ToString().Sum(Char.GetNumericValue).ToString();
-    }
+    public override void Execute()  => Result = $"Сумма всех цифр в числе {Arguments[0]} = " + Arguments[0].ToString().Sum(Char.GetNumericValue).ToString();
+    
+    // подбираюсь потихоньку к LINQ.
 }

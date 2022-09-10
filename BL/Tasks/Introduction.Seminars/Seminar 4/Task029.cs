@@ -13,7 +13,7 @@ public class Task029 : HomeworkTask
 
     public override void Execute() //реализация задачи
     {
-        // Массив элементов уже задан и присвоен свойству int[] Arguments - заполняется вводом пользователя в методе CreateArgumentsForTask класса TaskExecutor.  
+        // Массив элементов уже задан и присвоен свойству int[] Arguments - заполнялся при помощи делегата ввода пользователя из UI в методе CreateArgumentsForTask класса TaskExecutor.  
         // Здесь работаем уже со свойством.
 
         for (int i = 0; i < Arguments.Length; i++)

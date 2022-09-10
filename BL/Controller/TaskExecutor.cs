@@ -9,6 +9,7 @@ internal class TaskExecutor
     private MessageHandler _messageHandler; // ссылка на делегат вывода сообщения в UI. Именование через _ в соответствии с правилами именования приватных полей.
     #endregion
 
+    #region Конструктор класса.
     /// <summary>
     /// Конструктор класса.
     /// </summary>
@@ -19,7 +20,9 @@ internal class TaskExecutor
         _inputHandler = inputHandler; // вначале "_" потому что приватное поле класса.
         _messageHandler = messageHandler; // вначале "_" потому что приватное поле класса.
     }
+    #endregion
 
+    #region Методы класса.
     /// <summary>
     /// Метод выполнения задачи.
     /// </summary>
@@ -52,8 +55,9 @@ internal class TaskExecutor
             if (groupedArguments) // если это группы аргументов
                 if (i == quantityOfArgs / 2) // когда набираем половину необходимых аргументов  
                     _messageHandler.Invoke($"Введите следующие {quantityOfArgs / 2} значения "); // просто отображаем в UI. Пока этого достаточно.
-           
+
             _homeworkTask.Arguments[i] = _inputHandler.Invoke(MessageConstants.InviteInputNumber); // итеративно запрашиваем аргумент через ввод пользователя в UI.                                                            
         }
     }
+    #endregion
 }

@@ -11,10 +11,7 @@ public class Task025 : HomeworkTask
         Description = $"Выполняется задача №{Number}: Цикл принимает на вход два числа (A и B) и возводит число A в натуральную степень B.";
     }
 
-    public override void Execute() //реализация задачи
-    {
-        // Цикл ввода аргументов уже реализован в методе CreateArgumentsForTask() класса TaskExecutor.
+    public override void Execute() => Result = $"Первое число: {Arguments[0]}\nВторое число: {Arguments[1]}\nПервое число в натуральной степени второго числа = {Math.Pow(Arguments[0], Arguments[1])}.";
 
-        Result = $"Первое число: {Arguments[0]}\nВторое число: {Arguments[1]}\nПервое число в натуральной степени второго числа = {Math.Pow(Arguments[0],Arguments[1])}.";
-    }
+    // Цикл ввода аргументов уже реализован через делегат ввода из UI в методе CreateArgumentsForTask() класса TaskExecutor (работает для всех заданий).
 }
