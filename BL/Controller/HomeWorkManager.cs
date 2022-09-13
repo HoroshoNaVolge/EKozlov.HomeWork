@@ -158,7 +158,16 @@ public class HomeWorkManager
                 CurrentTask = new Task027(); // создание экземпляра задачи №27.
                 break;
             case 29:
-                CurrentTask = new Task029(); // создание экземпляра задачи №27.
+                CurrentTask = new Task029(); // создание экземпляра задачи №29.
+                break;
+            case 34:
+                CurrentTask = new Task034() { NoUserInputNeeded = true }; // создание экземпляра задачи №34.
+                break;
+            case 36:
+                CurrentTask = new Task036() { NoUserInputNeeded = true }; // создание экземпляра задачи #36.
+                break;
+            case 38:
+                CurrentTask = new Task038() { NoUserInputNeeded = true }; // создание экземпляра задачи #38.
                 break;
 
             default: // если никакой актуальный номер не введен.

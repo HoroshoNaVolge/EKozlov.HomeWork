@@ -30,6 +30,9 @@ public abstract class HomeworkTask
     /// </summary>
     /// <value></value>
     public bool GroupedArguemnts{get; protected set;}
+
+    public bool NoUserInputNeeded { get; set; }
+
     /// <summary>
     /// Результат выполнения задачи.
     /// </summary>

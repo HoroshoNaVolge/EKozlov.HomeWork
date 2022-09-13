@@ -32,14 +32,18 @@ internal class TaskExecutor
     {
         _homeworkTask = currentTask; //Именование через _ в соответствии с правилами именования приватных полей.
 
-        if (_homeworkTask != null)
+        if (_homeworkTask == null) return null;
+
+        if (_homeworkTask.NoUserInputNeeded == false)
         {
             CreateArgumentsForTask(_homeworkTask.QuantityOfArguments); // создаём конкретные аргументы для выполнения конкретной задачи.
 
             _homeworkTask.Execute(); // выполняем задачу.
             return _homeworkTask.Result;
         }
-        return null;
+        else _homeworkTask.Execute();
+        return _homeworkTask.Result;
+
     }
 
     private void CreateArgumentsForTask(int quantityOfArgs) // метод создания аргументов для задачи.
