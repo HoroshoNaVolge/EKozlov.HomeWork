@@ -2,7 +2,7 @@ using EKozlov.HomeWork.BL;
 
 public class Task036 : HomeworkTask
 {
-    public Task036() : base()
+    public Task036(bool noUserInputArgs) : base(noUserInputArgs)
     {
         Number = 36; // номер задачи согласно списку ДЗ 
 
@@ -11,20 +11,15 @@ public class Task036 : HomeworkTask
 
     public override void Execute() //реализация задачи
     {
-        Random random = new Random();
+        // Массив ограничен 6 элементами и небольшим отрезком значений для улучшения читабельности результата.
 
-        int[] array = new int[random.Next(2, 10)];
+        var arr = new int[random.Next(3, 6)].Select(i => random.Next(-100, 101)).ToArray<int>();
+        
+        int sumByOddIndex = 0;
 
+        for (int i = 1; i < arr.Length; i = i + 2) // в цикле просто проходим с шагом через один, начиная с 1. 
+            sumByOddIndex += arr[i];
 
-        for (int i = 0; i < array.Length; i++)
-        {
-            array[i] = random.Next(-1000, 1000);
-
-            Result += i != array.Length - 1 ? array[i] + ", " : array[i];
-        }
-
-        int sum = (from i in array where array[i] % 2 != 0 select i).Sum();
-
-        Result = $"В массиве: [{Result}] сумма чисел на нечётных позициях (нумерация с нуля) : {sum}";
+        Result = $"В массиве: [{GetSequenceInText(arr)}] сумма чисел на нечётных позициях (нумерация с нуля) : {sumByOddIndex}";
     }
 }
