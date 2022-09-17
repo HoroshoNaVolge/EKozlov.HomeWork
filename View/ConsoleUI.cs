@@ -31,7 +31,7 @@ public class ConsoleUI : IView
         {
             return true;
         }
-        else if (stringInput?.ToLower() == CheckNo) // если ввод "n/N" - завершаем.
+        else if (stringInput.ToLower() == CheckNo) // если ввод "n/N" - завершаем.
         {
             return false;
         }

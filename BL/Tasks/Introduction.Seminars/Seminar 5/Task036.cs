@@ -14,7 +14,7 @@ public class Task036 : HomeworkTask
         // Массив ограничен 6 элементами и небольшим отрезком значений для улучшения читабельности результата.
 
         var arr = new int[random.Next(3, 6)].Select(i => random.Next(-100, 101)).ToArray<int>();
-        
+
         int sumByOddIndex = 0;
 
         for (int i = 1; i < arr.Length; i = i + 2) // в цикле просто проходим с шагом через один, начиная с 1. 
