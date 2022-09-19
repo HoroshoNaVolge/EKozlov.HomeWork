@@ -17,7 +17,7 @@ public class Task002 : HomeworkTask
 
         int minNumber = Arguments[1];
 
-        bool equalNumbers = false; 
+        bool equalNumbers = false;
 
         if (Arguments[0] > Arguments[1])
         {
@@ -30,7 +30,7 @@ public class Task002 : HomeworkTask
             minNumber = Arguments[0];
         }
         else equalNumbers = true;
-   
+
         Result = equalNumbers ? $"Числа одинаковы {Arguments[0]} и {Arguments[1]}" : $"Наибольшим числом является: {maxNumber}. Наименьшим числом является: {minNumber}";
     }
 }

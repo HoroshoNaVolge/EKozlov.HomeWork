@@ -11,8 +11,11 @@ public class HomeWorkManager
     // Ссылка на экземпляр исполнителя задач.
     private TaskExecutor _taskExecutor;
 
+    // Ссылка на экземпляр UI.
+    private IView _view;
+
     // Первый запуск. Значение по умолчанию true. 
-    private bool _firstExecution = true; 
+    private bool _firstExecution = true;
     #endregion
 
     #region Свойства класса TaskManager
@@ -42,24 +45,25 @@ public class HomeWorkManager
     #region Конструктор и геттер singleton-класса TaskManager
 
     // Паттерн Singleton. Приватный конструктор TaskManager.
-    private HomeWorkManager(IView userInterface) 
+    private HomeWorkManager(IView userInterface)
     {
-        ShowMessage = userInterface.ShowMessage; 
-        GetIntegerInput = userInterface.GetIntegerInput; 
-        GetYesOrNoInput = userInterface.GetYesOrNoInput;
+        _view = userInterface;
+        ShowMessage = _view.ShowMessage;
+        GetIntegerInput = _view.GetIntegerInput;
+        GetYesOrNoInput = _view.GetYesOrNoInput;
 
         // Инициализируем экземпляр исполнителя задач, передаём ему метод запроса данных из UI и вывода сообщений в UI.
-        _taskExecutor = new TaskExecutor(GetIntegerInput, ShowMessage); 
+        _taskExecutor = new TaskExecutor(GetIntegerInput, ShowMessage);
     }
 
     /// <summary>
     /// Возвращает экземпляр менеджера задач. Паттерн Singleton.
     /// </summary>
-    public static HomeWorkManager getInstance(IView userInterface) 
+    public static HomeWorkManager getInstance(IView userInterface)
     {
-        if (_manager == null) 
-            return _manager = new HomeWorkManager(userInterface); 
-        return _manager; 
+        if (_manager == null)
+            return _manager = new HomeWorkManager(userInterface);
+        return _manager;
     }
 
     #endregion
@@ -72,13 +76,13 @@ public class HomeWorkManager
     public void Run()
     {
         // Выполнение программы в цикле, пока пользователь не завершит.
-        while (NeedToContinueProgram()) 
+        while (NeedToContinueProgram())
         {
-            int taskNumber = GetIntegerInput.Invoke(MessageConstants.InviteInputTask); 
+            int taskNumber = GetIntegerInput.Invoke(MessageConstants.InviteInputTask);
 
-            CreateTask(taskNumber);  
+            CreateTask(taskNumber);
 
-            if (CurrentTask != null) 
+            if (CurrentTask != null)
             {
                 ShowMessage.Invoke(CurrentTask.Description);
 
@@ -87,9 +91,9 @@ public class HomeWorkManager
 
                 while (AskToRepeatTask())
                 {
-                    CreateTask(taskNumber); 
+                    CreateTask(taskNumber);
 
-                    ShowMessage.Invoke(CurrentTask.Description); 
+                    ShowMessage.Invoke(CurrentTask.Description);
 
                     ShowMessage.Invoke(_taskExecutor.ExecuteTask(CurrentTask));
                 }
@@ -113,7 +117,11 @@ public class HomeWorkManager
         else
         {
             if (GetYesOrNoInput.Invoke(MessageConstants.AskContinue))
+            {
+                _view.Clear();
                 return true;
+            }
+
             else
             {
                 ShowMessage.Invoke(MessageConstants.GoodBye);
@@ -126,6 +134,8 @@ public class HomeWorkManager
     {
         if (GetYesOrNoInput.Invoke(MessageConstants.AskRepeat))
             return true;
+
+
         else return false;
     }
 

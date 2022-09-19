@@ -1,5 +1,5 @@
-using System.Text;
 using EKozlov.HomeWork.BL;
+using System.Text;
 using static EKozlov.HomeWork.View.IView;
 
 internal class TaskExecutor
@@ -39,14 +39,18 @@ internal class TaskExecutor
         if (_homeworkTask == null) return null;
 
         // Создаём конкретные аргументы для выполнения конкретной задачи.
-        CreateArgumentsForTask(_homeworkTask.QuantityOfArguments);
+
+        if (_homeworkTask.SpecifiedArgumentsNames == null)
+            CreateArgumentsForTask(_homeworkTask.QuantityOfArguments);
+        else
+            CreateArgumentsForTask(_homeworkTask.SpecifiedArgumentsNames);
 
         _homeworkTask.Execute();
 
         return _homeworkTask.Result;
     }
 
-    // Метод создания аргументов для задачи через ввод из UI.
+    // Метод создания универсальных аргументов для задачи через ввод из UI.
     private void CreateArgumentsForTask(int quantityOfArgs)
     {
 
@@ -74,6 +78,22 @@ internal class TaskExecutor
         }
 
         _stringBuilder.Clear();
+    }
+
+    // Метод создания специфических аргументов для задачи через ввод из UI.
+    private void CreateArgumentsForTask(string[] argsSpecificNames)
+    {
+
+        _homeworkTask.Arguments = new int[argsSpecificNames.Length];
+
+        for (var i = 0; i < argsSpecificNames.Length; i++)
+        {
+            _stringBuilder.Append($"Введите {argsSpecificNames[i]}: ");
+
+            _homeworkTask.Arguments[i] = _inputHandler.Invoke(_stringBuilder.ToString());
+
+            _stringBuilder.Clear();
+        }
     }
     #endregion
 }

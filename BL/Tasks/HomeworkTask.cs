@@ -29,10 +29,15 @@ public abstract class HomeworkTask
     public int QuantityOfArguments { get; protected set; }
 
     /// <summary>
-    /// Необходимо ли деление аргументов на ггруппы.
+    /// Необходимо ли деление аргументов на группы.
     /// </summary>
     /// <value></value>
     public bool GroupedArguemnts { get; protected set; }
+
+    /// <summary>
+    /// Необходимо ли определённое название вводимых аргументов.
+    /// </summary>
+    public string[] SpecifiedArgumentsNames { get; protected set; }
 
     /// <summary>
     /// Результат выполнения задачи.
@@ -50,7 +55,7 @@ public abstract class HomeworkTask
     {
         Result = string.Empty;
         Arguments = Array.Empty<int>();
-        Description = string.Empty; 
+        Description = string.Empty;
     }
 
     /// <summary>

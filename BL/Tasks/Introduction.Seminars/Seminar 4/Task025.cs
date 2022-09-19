@@ -6,7 +6,7 @@ public class Task025 : HomeworkTask
     {
         Number = 25;
 
-        QuantityOfArguments = 2; 
+        QuantityOfArguments = 2;
 
         Description = $"\nВыполняется задача №{Number}: Цикл принимает на вход два числа (A и B) и возводит число A в натуральную степень B.";
     }

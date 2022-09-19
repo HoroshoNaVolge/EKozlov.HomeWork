@@ -23,7 +23,7 @@ public class Task023 : HomeworkTask
             else
             {
                 // Int64 используем для обхода ограничения Int32 в 4 миллиарда. Так как считаем кубы.
-                List<long> cubicalList = new List<long>(); 
+                List<long> cubicalList = new List<long>();
 
                 for (long i = 1; i <= Arguments[0]; i++)
                 {

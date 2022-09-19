@@ -17,7 +17,7 @@ public class Task036 : HomeworkTask
 
         int sumByOddIndex = 0;
 
-        for (int i = 1; i < arr.Length; i = i + 2) 
+        for (int i = 1; i < arr.Length; i = i + 2)
             sumByOddIndex += arr[i];
 
         Result = $"В массиве: [{GetSequenceInText(arr)}] сумма чисел на нечётных позициях (нумерация с нуля) : {sumByOddIndex}";

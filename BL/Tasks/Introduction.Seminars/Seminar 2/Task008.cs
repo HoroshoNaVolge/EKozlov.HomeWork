@@ -13,7 +13,7 @@ public class Task008 : HomeworkTask
 
     public override void Execute()
     {
-        int tempVar = Arguments[0]; 
+        int tempVar = Arguments[0];
 
         List<int> evenNumbers = new List<int>();
 
@@ -25,7 +25,7 @@ public class Task008 : HomeworkTask
 
         string listOfOdds = string.Empty;
 
-        foreach (int x in evenNumbers)  
+        foreach (int x in evenNumbers)
         {
             listOfOdds += x.ToString() + " ";
         }

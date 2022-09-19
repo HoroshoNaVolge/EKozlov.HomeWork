@@ -15,7 +15,7 @@ public class Task019 : HomeworkTask
     {
         if ((Arguments[0] / 100 < 100 || Arguments[0] / 100 >= 1000))
             Result = $"{Arguments[0]} не пятизначное число.";
-        
+
         else
         {
             char[] charArray = Arguments[0].ToString().ToCharArray();
@@ -31,7 +31,7 @@ public class Task019 : HomeworkTask
                 else palyndrome = false;
 
             else palyndrome = false;
-            
+
             Result = palyndrome ? $"Число {Arguments[0]} является палиндромом" : $"Число {Arguments[0]} не является палиндромом.";
         }
 

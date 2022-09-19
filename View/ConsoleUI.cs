@@ -14,7 +14,7 @@ public class ConsoleUI : IView
     {
         string consoleInput = ReadLine(message);
 
-        if (int.TryParse(consoleInput, out var parseResult))   
+        if (int.TryParse(consoleInput, out var parseResult))
             return parseResult;
         else
             return GetIntegerInput(InvalidInput);
@@ -54,4 +54,9 @@ public class ConsoleUI : IView
         Console.Write(message);
         return Console.ReadLine();
     }
+
+    /// <summary>
+    /// Очистка консоли.
+    /// </summary>
+    public void Clear() => Console.Clear();
 }

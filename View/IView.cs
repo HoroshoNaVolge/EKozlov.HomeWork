@@ -21,6 +21,10 @@ public interface IView
     /// <returns>true, если "да".</returns>
     public bool GetYesOrNoInput(string message);
 
+    /// <summary>
+    /// Очистка вывода в UI.
+    /// </summary>
+    public void Clear();
 
     /// <summary>
     /// Делегат вывода сообщения в UI.

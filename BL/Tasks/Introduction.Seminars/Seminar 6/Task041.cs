@@ -13,7 +13,7 @@ public class Task041 : HomeworkTask
 
     public override void Execute()
     {
-        Result = "Введены числа: " + GetSequenceInText(Arguments) + 
+        Result = "Введены числа: " + GetSequenceInText(Arguments) +
                  ". Количество чисел больше нуля => " +
                  (from a in Arguments where a > 0 select a).Count().ToString();
     }

@@ -1,4 +1,4 @@
-﻿using EKozlov.HomeWork.BL; 
+﻿using EKozlov.HomeWork.BL;
 using EKozlov.HomeWork.View;
 
 // Получаем экземпляр менеджера домашних заданий. В данной реализации передаем в качестве аргумента Консольный UI.

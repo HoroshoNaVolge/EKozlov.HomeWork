@@ -19,10 +19,10 @@ public class Task015 : HomeworkTask
 
         else
         {
-            var dayOff = (saturday: 6, sunday: 7); 
+            var dayOff = (saturday: 6, sunday: 7);
 
-            if (Arguments[0] == dayOff.saturday || Arguments[0] == dayOff.sunday) 
-                Result = $" {Arguments[0]}  =>  " + " да, это выходной."; 
+            if (Arguments[0] == dayOff.saturday || Arguments[0] == dayOff.sunday)
+                Result = $" {Arguments[0]}  =>  " + " да, это выходной.";
 
             else
                 Result = $" {Arguments[0]}  =>  " + " нет, это не выходной.";
