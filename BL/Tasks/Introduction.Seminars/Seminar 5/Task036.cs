@@ -4,12 +4,12 @@ public class Task036 : HomeworkTask
 {
     public Task036(bool noUserInputArgs) : base(noUserInputArgs)
     {
-        Number = 36; // номер задачи согласно списку ДЗ 
+        Number = 36;
 
-        Description = $"Выполняется задача №{Number}: Программа задаёт одномерный массив, заполненный случайными числами и находит сумму элементов, стоящих на нечётных позициях. ";
+        Description = $"\nВыполняется задача №{Number}: Программа задаёт одномерный массив, заполненный случайными числами и находит сумму элементов, стоящих на нечётных позициях. ";
     }
 
-    public override void Execute() //реализация задачи
+    public override void Execute()
     {
         // Массив ограничен 6 элементами и небольшим отрезком значений для улучшения читабельности результата.
 
@@ -17,7 +17,7 @@ public class Task036 : HomeworkTask
 
         int sumByOddIndex = 0;
 
-        for (int i = 1; i < arr.Length; i = i + 2) // в цикле просто проходим с шагом через один, начиная с 1. 
+        for (int i = 1; i < arr.Length; i = i + 2) 
             sumByOddIndex += arr[i];
 
         Result = $"В массиве: [{GetSequenceInText(arr)}] сумма чисел на нечётных позициях (нумерация с нуля) : {sumByOddIndex}";

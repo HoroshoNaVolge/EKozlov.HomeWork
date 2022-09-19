@@ -1,6 +1,8 @@
 ﻿using EKozlov.HomeWork.BL; 
 using EKozlov.HomeWork.View;
 
-HomeWorkManager taskManager = HomeWorkManager.getInstance(new ConsoleUI()); // получаем экземпляр менеджера домашних заданий. В данной реализации передаем параметром Консольный UI.
+// Получаем экземпляр менеджера домашних заданий. В данной реализации передаем в качестве аргумента Консольный UI.
+HomeWorkManager homeworkManager = HomeWorkManager.getInstance(new ConsoleUI());
 
-taskManager.Run(); // запускаем выполнение менеджера домашних заданий.
+// Запускаем выполнение менеджера домашних заданий.
+homeworkManager.Run();

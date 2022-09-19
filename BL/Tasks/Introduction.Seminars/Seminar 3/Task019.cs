@@ -4,24 +4,25 @@ public class Task019 : HomeworkTask
 {
     public Task019() : base()
     {
-        Number = 19; // номер задачи согласно списку ДЗ 
+        Number = 19;
 
-        QuantityOfArguments = 1; // количество аргументов согласно тексту задачи 
+        QuantityOfArguments = 1;
 
-        Description = $"Выполняется задача №{Number}: Программа принимает на вход пятизначное число и проверяет, является ли оно палиндромом.";
+        Description = $"\nВыполняется задача №{Number}: Программа принимает на вход пятизначное число и проверяет, является ли оно палиндромом.";
     }
 
-    public override void Execute() //реализация задачи
+    public override void Execute()
     {
-        if ((Arguments[0] / 100 < 100 || Arguments[0] / 100 >= 1000)) // проверка, что число пятизначное.
+        if ((Arguments[0] / 100 < 100 || Arguments[0] / 100 >= 1000))
             Result = $"{Arguments[0]} не пятизначное число.";
+        
         else
         {
             char[] charArray = Arguments[0].ToString().ToCharArray();
 
             bool palyndrome;
 
-            if (charArray[0] == charArray[4]) // реализуем конкретно для пятизначного числа, как в условии задачи.
+            if (charArray[0] == charArray[4])
 
                 if (charArray[1] == charArray[3])
 

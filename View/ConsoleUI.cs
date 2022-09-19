@@ -12,12 +12,12 @@ public class ConsoleUI : IView
     /// <param name="message">Cообщение для вывода в консоль. </param>
     public int GetIntegerInput(string message)
     {
-        string consoleInput = ReadLine(message); //  Кладём в переменную вводенные данные с консоли. Используем MyConsole для возможности одновременно использовать Console. Write
+        string consoleInput = ReadLine(message);
 
-        if (int.TryParse(consoleInput, out var parseResult)) // Проверка на допустимость преобразования введенных символов в тип int.  
-            return parseResult; // преобразование возможно - возвращаем int 
+        if (int.TryParse(consoleInput, out var parseResult))   
+            return parseResult;
         else
-            return GetIntegerInput(InvalidInput); // преобразование невозможно - рекурсивно вызываем метод ввода, пока не будет корректного ввода
+            return GetIntegerInput(InvalidInput);
     }
 
     /// <summary>
@@ -27,35 +27,31 @@ public class ConsoleUI : IView
     public bool GetYesOrNoInput(string message)
     {
         string stringInput = ReadLine(message);
-        if (stringInput.ToLower() == CheckYes) // если ввод "y/Y" - продолжаем
-        {
-            return true;
-        }
-        else if (stringInput.ToLower() == CheckNo) // если ввод "n/N" - завершаем.
-        {
-            return false;
-        }
 
-        else // если введен другой символ/символы
-        {
-            return GetYesOrNoInput(NotYesOrNo); // рекурсивный вызов ввода y или n
-        }
+        if (stringInput.ToLower() == CheckYes)
+            return true;
+
+        else if (stringInput.ToLower() == CheckNo)
+            return false;
+
+        else
+            return GetYesOrNoInput(NotYesOrNo);
     }
 
     /// <summary>
     /// Метод вывода сообщений в консоль.
     /// </summary>
     /// <param name="message">Сообщение.</param>
-    public void ShowMessage(string message) => System.Console.WriteLine(message);
+    public void ShowMessage(string message) => Console.WriteLine(message);
 
     /// <summary>
-    /// Перегруженный метод с аргументом для вывода в консоль одновременно с запросом ввода пользователя 
+    /// Перегруженный метод с аргументом для вывода в консоль одновременно с запросом ввода пользователя.
     /// </summary>
     /// <param name="message"> Сообщение для вывода в консоль.</param>
     /// <returns></returns>
-    public static string ReadLine(string message)  // Допускаем NULL при помощи <string?>.
+    public static string ReadLine(string message)
     {
-        System.Console.Write(message); // Выдаем сообщение в консоль. 
-        return System.Console.ReadLine(); // Запрос ввода пользователя в консоль.
+        Console.Write(message);
+        return Console.ReadLine();
     }
 }

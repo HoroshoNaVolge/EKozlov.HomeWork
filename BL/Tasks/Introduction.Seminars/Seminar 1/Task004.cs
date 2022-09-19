@@ -6,12 +6,12 @@ public class Task004 : HomeworkTask
     {
         Number = 4;
 
-        QuantityOfArguments = 3; // количество аргументов согласно тексту задачи 
+        QuantityOfArguments = 3;
 
-        Description = $"Выполняется задача №{Number}: Программа принимает на вход три числа и выдаёт максимальное из этих чисел."; // описание задачи
+        Description = $"\nВыполняется задача №{Number}: Программа принимает на вход три числа и выдаёт максимальное из этих чисел.";
     }
 
-    public override void Execute() //реализация задачи
+    public override void Execute()
     {
         int maxNumber = Arguments[0];
         for (int x = 0; x < Arguments.Length; x++)

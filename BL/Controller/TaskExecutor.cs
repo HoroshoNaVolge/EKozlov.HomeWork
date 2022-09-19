@@ -1,12 +1,15 @@
+using System.Text;
 using EKozlov.HomeWork.BL;
 using static EKozlov.HomeWork.View.IView;
 
 internal class TaskExecutor
 {
     #region Приватные поля класса.
-    private HomeworkTask _homeworkTask; // ссылка на экземпляр задачи. Именование через _ в соответствии с правилами именования приватных полей.
-    private InputHandler _inputHandler; // ссылка на делегат ввода пользователем из UI. Именование через _ в соответствии с правилами именования приватных полей.
-    private MessageHandler _messageHandler; // ссылка на делегат вывода сообщения в UI. Именование через _ в соответствии с правилами именования приватных полей.
+    // Именование через _ в соответствии с правилами именования приватных полей.
+    private HomeworkTask _homeworkTask;
+    private InputHandler _inputHandler;
+    private MessageHandler _messageHandler;
+    private StringBuilder _stringBuilder;
     #endregion
 
     #region Конструктор класса.
@@ -17,8 +20,9 @@ internal class TaskExecutor
     /// <param name="messageHandler">Делегат вывода в UI.</param>
     internal TaskExecutor(InputHandler inputHandler, MessageHandler messageHandler)
     {
-        _inputHandler = inputHandler; // вначале "_" потому что приватное поле класса.
-        _messageHandler = messageHandler; // вначале "_" потому что приватное поле класса.
+        _inputHandler = inputHandler;
+        _messageHandler = messageHandler;
+        _stringBuilder = new StringBuilder();
     }
     #endregion
 
@@ -30,33 +34,46 @@ internal class TaskExecutor
     /// <returns></returns>
     internal string ExecuteTask(HomeworkTask currentTask)
     {
-        _homeworkTask = currentTask; //Именование через _ в соответствии с правилами именования приватных полей.
+        _homeworkTask = currentTask;
 
         if (_homeworkTask == null) return null;
 
-        CreateArgumentsForTask(_homeworkTask.QuantityOfArguments); // создаём конкретные аргументы для выполнения конкретной задачи.
+        // Создаём конкретные аргументы для выполнения конкретной задачи.
+        CreateArgumentsForTask(_homeworkTask.QuantityOfArguments);
 
-        _homeworkTask.Execute(); // выполняем задачу.
+        _homeworkTask.Execute();
 
-        return _homeworkTask.Result; // возвращаем результат.
+        return _homeworkTask.Result;
     }
 
-    private void CreateArgumentsForTask(int quantityOfArgs) // метод создания аргументов для задачи.
+    // Метод создания аргументов для задачи через ввод из UI.
+    private void CreateArgumentsForTask(int quantityOfArgs)
     {
-        bool groupedArguments = _homeworkTask.GroupedArguemnts; // определяет, нужно ли делить аргументы на группы (только для соответствующего отображения в консоль).
 
-        _homeworkTask.Arguments = new int[quantityOfArgs]; // объявляем массив элементов (аргументы для выполнения операций в конкретной задаче).
+        _homeworkTask.Arguments = new int[quantityOfArgs];
 
-        if (groupedArguments) _messageHandler.Invoke($"Введите первые {quantityOfArgs / 2} значения: ");
+        if (_homeworkTask.GroupedArguemnts) _messageHandler.Invoke($"\nВведите первые {quantityOfArgs / 2} значения");
 
-        for (int i = 0; i < quantityOfArgs; i++) // пока полностью не получим необходимое количество аргументов для задачи,
+        _stringBuilder.Append(MessageConstants.InviteInputNumber);
+
+
+        for (var i = 0; i < quantityOfArgs; i++)
         {
-            if (groupedArguments) // если это группы аргументов
-                if (i == quantityOfArgs / 2) // когда набираем половину необходимых аргументов  
-                    _messageHandler.Invoke($"Введите следующие {quantityOfArgs / 2} значения "); // просто отображаем в UI. Пока этого достаточно.
+            // После слова "введите" вставляем индекс+1 -> введите {индекс+1} целое число.
+            _stringBuilder.Insert(8, i + 1 + "-е");
 
-            _homeworkTask.Arguments[i] = _inputHandler.Invoke(MessageConstants.InviteInputNumber); // итеративно запрашиваем аргумент через ввод пользователя в UI.                                                            
+            // Если это группы аргументов, выводим в UI, когда достигнем половины.
+            if (_homeworkTask.GroupedArguemnts)
+                if (i == quantityOfArgs / 2)
+                    _messageHandler.Invoke($"\nВведите следующие {quantityOfArgs / 2} значения");
+
+            _homeworkTask.Arguments[i] = _inputHandler.Invoke(_stringBuilder.ToString());
+
+            // Удаляем 3 символа по индексу после слова "Введите" ("{N} - e").
+            _stringBuilder.Remove(8, 3);
         }
+
+        _stringBuilder.Clear();
     }
     #endregion
 }

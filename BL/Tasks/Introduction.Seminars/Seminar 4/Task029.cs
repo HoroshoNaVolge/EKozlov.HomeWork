@@ -4,16 +4,16 @@ public class Task029 : HomeworkTask
 {
     public Task029() : base()
     {
-        Number = 29; // номер задачи согласно списку ДЗ 
+        Number = 29;
 
-        QuantityOfArguments = 8; // количество аргументов согласно тексту задачи 
+        QuantityOfArguments = 8;
 
-        Description = $"Выполняется задача №{Number}: Программа задаёт массив из 8 элементов и выводит их на экран. ";
+        Description = $"\nВыполняется задача №{Number}: Программа задаёт массив из 8 элементов и выводит их на экран. ";
     }
 
-    public override void Execute() //реализация задачи
+    public override void Execute()
     {
-        // Массив элементов уже задан и присвоен свойству int[] Arguments - заполнялся при помощи делегата ввода пользователя из UI в методе CreateArgumentsForTask класса TaskExecutor.  
+        // Массив элементов уже задан и присвоен свойству int[] Arguments в методе CreateArgumentsForTask класса TaskExecutor.  
         // Здесь работаем уже со свойством.
 
         for (int i = 0; i < Arguments.Length; i++)

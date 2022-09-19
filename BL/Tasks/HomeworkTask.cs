@@ -5,7 +5,7 @@
 namespace EKozlov.HomeWork.BL;
 public abstract class HomeworkTask
 {
-    protected Random random; // переменная для работы с рандомом в классах-наследниках.
+    protected readonly Random random;
 
     #region Свойства родительского класса
     /// <summary>
@@ -26,7 +26,7 @@ public abstract class HomeworkTask
     /// Количество аргументов для задачи.
     /// </summary>
     /// <value></value>
-    public int QuantityOfArguments { get; protected set; } // свойство, содержащее количество аргументов для задачи
+    public int QuantityOfArguments { get; protected set; }
 
     /// <summary>
     /// Необходимо ли деление аргументов на ггруппы.
@@ -38,7 +38,7 @@ public abstract class HomeworkTask
     /// Результат выполнения задачи.
     /// </summary>
     /// <value></value>
-    public string Result { get; protected set; } // свойство с результатом выполнения задачи
+    public string Result { get; protected set; }
 
     #endregion
 
@@ -48,18 +48,18 @@ public abstract class HomeworkTask
     /// </summary>
     public HomeworkTask()
     {
-        Result = string.Empty; // для исключения null-reference
-        Arguments = Array.Empty<int>(); // для исключения null-reference
-        Description = string.Empty; // для исключения null-reference
+        Result = string.Empty;
+        Arguments = Array.Empty<int>();
+        Description = string.Empty; 
     }
 
     /// <summary>
-    /// Перегруженный конструктор для задач без ввода пользователя аргументов.
+    /// Перегруженный конструктор для задач без ввода пользователя аргументов (использование Random).
     /// </summary>
     /// <param name="withoutInputArgs"> Нужен ли ввод аргументов для задачи пользователем.</param>
     public HomeworkTask(bool withoutInputArgs)
     {
-        if (withoutInputArgs) random = new Random(); // если не нужен, создаём рандом для генерации случайных чисел, массивов и прочего.
+        if (withoutInputArgs) random = new Random();
     }
 
     #endregion
@@ -99,7 +99,7 @@ public abstract class HomeworkTask
         {
             tempValue = Math.Round(doubleSequence.ElementAt(i), 2).ToString().Replace(',', '.');
 
-            textResult += i != doubleSequence.Count() - 1 ? tempValue + ", " : tempValue; // меняет запятую на точку в отображении числа для исключения путаницы - в нашей строке элементы разделяются запятой.
+            textResult += i != doubleSequence.Count() - 1 ? tempValue + ", " : tempValue;
         }
         return textResult;
     }

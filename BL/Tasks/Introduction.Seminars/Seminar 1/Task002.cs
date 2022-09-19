@@ -4,18 +4,20 @@ public class Task002 : HomeworkTask
 {
     public Task002() : base()
     {
-        Number = 2; // номер задачи согласно списку ДЗ 
+        Number = 2;
 
-        QuantityOfArguments = 2; // количество аргументов согласно тексту задачи 
+        QuantityOfArguments = 2;
 
-        Description = $"Выполняется задача №{Number}: Программа на вход принимает два числа и выдаёт, какое число большее, а какое меньшее."; // описание задачи
+        Description = $"\nВыполняется задача №{Number}: Программа на вход принимает два числа и выдаёт, какое число большее, а какое меньшее.";
     }
 
-    public override void Execute() //реализация задачи
+    public override void Execute()
     {
         int maxNumber = Arguments[0];
+
         int minNumber = Arguments[1];
-        bool equalNumbers = false; // булева переменная, если введены два одинаковых числа
+
+        bool equalNumbers = false; 
 
         if (Arguments[0] > Arguments[1])
         {

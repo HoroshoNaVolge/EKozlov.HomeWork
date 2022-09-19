@@ -12,7 +12,7 @@ public static class MessageConstants
     /// <summary>
     /// Сообщение-приглашение к вводу целого числа.
     /// </summary>
-    public const string InviteInputNumber = "Введите целое число: ";
+    public const string InviteInputNumber = "Введите  целое число: ";
     /// <summary>
     /// Сообщение-приглашение к вводу номера задачи.
     /// </summary>

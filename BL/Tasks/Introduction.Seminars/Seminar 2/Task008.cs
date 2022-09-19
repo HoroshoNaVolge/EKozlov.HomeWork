@@ -4,30 +4,32 @@ public class Task008 : HomeworkTask
 {
     public Task008() : base()
     {
-        Number = 8; // номер задачи согласно списку ДЗ 
+        Number = 8;
 
-        QuantityOfArguments = 1; // количество аргументов согласно тексту задачи 
+        QuantityOfArguments = 1;
 
-        Description = $"Выполняется задача №{Number}: Программа на вход принимает число (N), а на выходе показывает все чётные числа от 1 до N."; // описание задачи
-    } 
+        Description = $"\nВыполняется задача №{Number}: Программа на вход принимает число (N), а на выходе показывает все чётные числа от 1 до N.";
+    }
 
-    public override void Execute() //реализация задачи
+    public override void Execute()
     {
-        int tempVar = Arguments[0]; // кладём аргумент во временную переменную int
+        int tempVar = Arguments[0]; 
 
-        List<int> evenNumbers = new List<int>();  // инициализируем список (коллекцию) int.
+        List<int> evenNumbers = new List<int>();
 
-        for (int x = 1; x <= tempVar; x++) // для каждого элемента в диапазоне от 1 до числа N (наше введенное число)
+        for (int x = 1; x <= tempVar; x++)
         {
-            if (x % 2 == 0) // если остаток от деления на 2 равен нулю , т.е. если число чётное
-                evenNumbers.Add(x); // тогда данный элемент добавляем в список 
+            if (x % 2 == 0)
+                evenNumbers.Add(x);
         }
 
-        string listOfOdds = string.Empty; // инициализируем строку для вывода всех элементов списка чётных чисел 
-        foreach (int x in evenNumbers) // для каждого элемента в списке чётных чисел 
+        string listOfOdds = string.Empty;
+
+        foreach (int x in evenNumbers)  
         {
-            listOfOdds += x.ToString() + " "; // добавляем в строку для вывода элемент списка и пробел (для читабельности вывода)
+            listOfOdds += x.ToString() + " ";
         }
-        Result = $"Список всех чётных чисел от 1 до {Arguments[0]}: " + listOfOdds; // присваиваем свойству Result конечный результат
+
+        Result = $"Список всех чётных чисел от 1 до {Arguments[0]}: " + listOfOdds;
     }
 }

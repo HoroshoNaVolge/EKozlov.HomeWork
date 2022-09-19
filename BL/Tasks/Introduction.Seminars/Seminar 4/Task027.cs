@@ -4,14 +4,13 @@ public class Task027 : HomeworkTask
 {
     public Task027() : base()
     {
-        Number = 27; // номер задачи согласно списку ДЗ 
+        Number = 27;
 
-        QuantityOfArguments = 1; // количество аргументов согласно тексту задачи 
+        QuantityOfArguments = 1;
 
-        Description = $"Выполняется задача №{Number}: Программа принимает на вход число и выдаёт сумму цифр в числе.";
+        Description = $"\nВыполняется задача №{Number}: Программа принимает на вход число и выдаёт сумму цифр в числе.";
     }
 
-    public override void Execute()  => Result = $"Сумма всех цифр в числе {Arguments[0]} = " + Arguments[0].ToString().Sum(Char.GetNumericValue).ToString();
-    
-    // подбираюсь потихоньку к LINQ.
+    public override void Execute() => Result = $"Сумма всех цифр в числе {Arguments[0]} = "
+                                   + Arguments[0].ToString().Sum(Char.GetNumericValue).ToString();
 }

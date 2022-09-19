@@ -4,18 +4,19 @@ public class Task021 : HomeworkTask
 {
     public Task021() : base()
     {
-        Number = 21; // номер задачи согласно списку ДЗ 
+        Number = 21;
 
-        QuantityOfArguments = 6; // количество аргументов согласно тексту задачи 
+        QuantityOfArguments = 6;
 
-        Description = $"Выполняется задача №{Number}: принимает на вход координаты двух точек и находит расстояние между ними в 3D пространстве.";
+        Description = $"\nВыполняется задача №{Number}: принимает на вход координаты двух точек и находит расстояние между ними в 3D пространстве.";
 
-        GroupedArguemnts=true; // по условию задачи у нас 2 группу аргументов. Используется для выдачи инструкций пользователю при вводе им аргументов в CreateArguments.
+        // По условию задачи у нас 2 группу аргументов. Используется для выдачи инструкций пользователю при вводе им аргументов в CreateArguments.
+        GroupedArguemnts = true;
     }
 
     public override void Execute() //реализация задачи
     {
-        //Формула: diffResult = √(xb - xa)2 + (yb - ya)2 + (zb - za)2
+        // Формула: diffResult = √(xb - xa)2 + (yb - ya)2 + (zb - za)2
 
         double diffPowXab = Math.Pow((double)(Arguments[0] - Arguments[3]), 2);
 
@@ -25,6 +26,7 @@ public class Task021 : HomeworkTask
 
         double diffResult = Math.Sqrt(diffPowXab + diffPowYab + diffPowZab);
 
-        Result = $"Расстояние между точками A({Arguments[0]},{Arguments[1]},{Arguments[2]}), B({Arguments[3]},{Arguments[4]},{Arguments[5]}) в 3D пространстве =  {diffResult}";
+        Result = $"Расстояние между точками A({Arguments[0]},{Arguments[1]},{Arguments[2]}), B({Arguments[3]},{Arguments[4]},{Arguments[5]}) " +
+                 $"в 3D пространстве =  {diffResult}";
     }
 }

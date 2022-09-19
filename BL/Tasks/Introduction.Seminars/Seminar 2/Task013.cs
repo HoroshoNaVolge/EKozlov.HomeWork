@@ -4,28 +4,28 @@ public class Task013 : HomeworkTask
 {
     public Task013() : base()
     {
-        Number = 13; // номер задачи согласно списку ДЗ 
+        Number = 13;
 
-        QuantityOfArguments = 1; // количество аргументов согласно тексту задачи 
+        QuantityOfArguments = 1; 
 
-        Description = $"Выполняется задача №{Number}: Программа выводит третью цифру заданного числа или сообщает, что третьей цифры нет."; // описание задачи
+        Description = $"\nВыполняется задача №{Number}: Программа выводит третью цифру заданного числа или сообщает, что третьей цифры нет.";
     }
 
-    public override void Execute() //реализация задачи
+    public override void Execute() 
     {
-        string tempStringNumber = Arguments[0].ToString(); // приводим int в строку 
+        string tempStringNumber = Arguments[0].ToString();
 
-        char[] charNumberInString = tempStringNumber.ToCharArray(); // массиву символов присваиваем строку, приведённую к типу массива символов
+        char[] charNumberInString = tempStringNumber.ToCharArray();
 
-        if (charNumberInString.Length >= 3) // если в массиве символов 3 и более элемента, то третья цифра числа будет в массиве по индексу [2].
+        if (charNumberInString.Length >= 3) 
 
-            if (charNumberInString[0] == '-') // если введено отрицательное число, тоесть первый элемент массива символов не цифра, а знак '-'.
-                Result = $"Третья цифра числа {Arguments[0]}  => " + tempStringNumber[3]; // то присваиваем свойству Result результат выполнения метода Execute (4 символ по порядку, т.е. 3 цифра)
+            if (charNumberInString[0] == '-') 
+                Result = $"Третья цифра числа {Arguments[0]}  => " + tempStringNumber[3];
 
             else
-                Result = $"Третья цифра числа {Arguments[0]}  => " + tempStringNumber[2]; // если true, то присваиваем свойству Result результат выполнения метода Execute
+                Result = $"Третья цифра числа {Arguments[0]}  => " + tempStringNumber[2];
 
         else
-            Result = $"В числе {Arguments[0]} третьей цифры нет"; // если false, то также присваиваем свойству Result результат выполнения метода Execute
+            Result = $"В числе {Arguments[0]} третьей цифры нет";
     }
 }

@@ -4,11 +4,11 @@ public class Task025 : HomeworkTask
 {
     public Task025() : base()
     {
-        Number = 25; // номер задачи согласно списку ДЗ 
+        Number = 25;
 
-        QuantityOfArguments = 2; // количество аргументов согласно тексту задачи 
+        QuantityOfArguments = 2; 
 
-        Description = $"Выполняется задача №{Number}: Цикл принимает на вход два числа (A и B) и возводит число A в натуральную степень B.";
+        Description = $"\nВыполняется задача №{Number}: Цикл принимает на вход два числа (A и B) и возводит число A в натуральную степень B.";
     }
 
     public override void Execute() => Result = $"Первое число: {Arguments[0]}\nВторое число: {Arguments[1]}\nПервое число в натуральной степени второго числа = {Math.Pow(Arguments[0], Arguments[1])}.";
