@@ -1,4 +1,5 @@
 
+using System.Text;
 /// <summary>
 /// Абстрактный родительский класс задачи.
 /// </summary>
@@ -6,6 +7,7 @@ namespace EKozlov.HomeWork.BL;
 public abstract class HomeworkTask
 {
     protected readonly Random random;
+    protected readonly StringBuilder stringBuilder;
 
     #region Свойства родительского класса
     /// <summary>
@@ -56,6 +58,8 @@ public abstract class HomeworkTask
         Result = string.Empty;
         Arguments = Array.Empty<int>();
         Description = string.Empty;
+        stringBuilder = new StringBuilder();
+        random = new Random();
     }
 
     /// <summary>
@@ -65,6 +69,7 @@ public abstract class HomeworkTask
     public HomeworkTask(bool withoutInputArgs)
     {
         if (withoutInputArgs) random = new Random();
+        stringBuilder = new StringBuilder();
     }
 
     #endregion
@@ -107,6 +112,31 @@ public abstract class HomeworkTask
             textResult += i != doubleSequence.Count() - 1 ? tempValue + ", " : tempValue;
         }
         return textResult;
+    }
+    /// <summary>
+    /// Создаёт двухмерный массив с рандомными doulbe-числами и добавляет его представление в stringBuilder.
+    /// </summary>
+    /// <param name="rows">Количество необходимых строк.</param>
+    /// <param name="columns">Количество необходимых столбцов.</param>
+    /// <returns>Массив с рандомными double-числами.</returns>
+    protected double[,] Create2DimArray(int rows, int columns)
+    {
+        double[,] numbers = new double[rows, columns];
+
+        for (int i = 0; i < rows; i++)
+        {
+            // Для каждой новой строки, т.е. когда инкремент i, переходим на новую строку (для дальнейшего вывода в консоль) 
+
+            stringBuilder.Append("\n");
+
+            for (int j = 0; j < columns; j++)
+
+            {
+                numbers[i, j] = Math.Round(random.Next(0, 6) + random.NextDouble(), 2);
+                stringBuilder.Append(numbers[i, j] + " ");
+            }
+        }
+        return numbers;
     }
 
     #endregion
