@@ -19,7 +19,7 @@ public class Task050 : HomeworkTask
 
         double[,] numbers = Create2DimArray(rows, columns);
 
-        Result = $"Двухмерный массив размером {rows}x{columns}: \n" + stringBuilder.ToString() + "\n";
+        Result = $"\nДвухмерный массив размером {rows}x{columns}: \n" + stringBuilder.ToString() + "\n";
 
         double valueOfElementByIndex;
 
@@ -27,12 +27,13 @@ public class Task050 : HomeworkTask
         {
             valueOfElementByIndex = numbers[Arguments[0], Arguments[1]];
 
-            Result += $"Элемент на позиции [{Arguments[0]},{Arguments[1]}]: " + valueOfElementByIndex;
+            Result += $"\nЭлемент на позиции [{Arguments[0]},{Arguments[1]}]: " + valueOfElementByIndex +" (нумерация индекса с нуля).\n";
         }
 
         catch (IndexOutOfRangeException)
         {
-            Result += $"На данной позиции [{Arguments[0]},{Arguments[1]}] в массиве элемента нет.";
+            Result += $"\nНа указанной позиции [{Arguments[0]},{Arguments[1]}] в массиве элемента нет (нумерация индекса с нуля).\n" +
+                $"";
         }
     }
 }

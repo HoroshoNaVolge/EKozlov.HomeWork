@@ -3,12 +3,12 @@ using System.Text;
 
 public class Task047 : HomeworkTask
 {
-    public Task047(bool noUserInputArgs) : base(noUserInputArgs)
+    public Task047() : base()
     {
         Number = 47;
 
         Description = $"\nВыполняется задача №{Number}:  Программа задаёт двумерный массив размером m*n, " +
-                      $"\nзаполненный случайными вещественными числами";
+                      $"\nзаполненный случайными вещественными числами\n";
     }
 
     public override void Execute()
@@ -20,6 +20,6 @@ public class Task047 : HomeworkTask
 
         Create2DimArray(rows, columns);
 
-        Result = $"Двухмерный массив размером {rows}x{columns}: \n" + stringBuilder.ToString();
+        Result = $"Двухмерный массив размером {rows}x{columns}: \n" + stringBuilder.ToString() + "\n";
     }
 }

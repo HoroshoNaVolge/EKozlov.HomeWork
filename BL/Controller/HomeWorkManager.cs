@@ -200,13 +200,13 @@ public class HomeWorkManager
                 CurrentTask = new Task043();
                 break;
             case 47:
-                CurrentTask = new Task047(true);
+                CurrentTask = new Task047();
                 break;
             case 50:
                 CurrentTask = new Task050();
                 break;
             case 52:
-                CurrentTask = new Task052(true);
+                CurrentTask = new Task052();
                 break;
 
             default:

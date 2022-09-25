@@ -3,7 +3,7 @@ using System.Text;
 
 public class Task052 : HomeworkTask
 {
-    public Task052(bool noUserInputArgs) : base(noUserInputArgs)
+    public Task052() : base()
     {
         Number = 52;
 
@@ -13,15 +13,14 @@ public class Task052 : HomeworkTask
 
     public override void Execute()
     {
-
         int rows = random.Next(2, 6);
         int columns = random.Next(2, 6);
 
         double[,] numbers = Create2DimArray(rows, columns);
         double[] sumByColumn = new double[columns];
 
-        stringBuilder.Append($"Двухмерный массив размером {rows}x{columns}: \n" + stringBuilder.ToString() + "\n"
-                             + "Среднее арифметическое каждого столбца: ");
+        Result = $"Двухмерный массив размером {rows}x{columns}: \n" + stringBuilder.ToString() 
+                 + "\n\nСреднее арифметическое каждого столбца: ";
 
         for (int i = 0; i < columns; i++)
         {
@@ -29,9 +28,11 @@ public class Task052 : HomeworkTask
                 sumByColumn[i] += Math.Round((numbers[j, i]), 2);
         }
 
-        foreach (double element in sumByColumn)
-            stringBuilder.Append(Math.Round(element / columns, 2) + " ");
+        stringBuilder.Clear();
 
-        Result = stringBuilder.ToString();
+        foreach (double element in sumByColumn)
+            stringBuilder.Append(Math.Round(element / rows, 2) + "  ");
+
+        Result += stringBuilder.ToString() + "\n";
     }
 }
