@@ -18,7 +18,7 @@ public class Task047 : HomeworkTask
         int rows = random.Next(2, 6);
         int columns = random.Next(2, 6);
 
-        Create2DimArray(rows, columns);
+        CreateInt2DimArray(rows, columns);
 
         Result = $"Двухмерный массив размером {rows}x{columns}: \n" + stringBuilder.ToString() + "\n";
     }

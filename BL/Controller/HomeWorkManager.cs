@@ -208,6 +208,30 @@ public class HomeWorkManager
             case 52:
                 CurrentTask = new Task052();
                 break;
+            case 54:
+                CurrentTask = new Task054();
+                break;
+            case 56:
+                CurrentTask = new Task056();
+                break;
+            case 58:
+                CurrentTask = new Task058();
+                break;
+            case 60:
+                CurrentTask = new Task060();
+                break;
+            case 62:
+                CurrentTask = new Task062();
+                break;
+            case 64:
+                CurrentTask = new Task064();
+                break;
+            case 66:
+                CurrentTask = new Task066();
+                break;
+            case 68:
+                CurrentTask = new Task068();
+                break;
 
             default:
                 CurrentTask = null;

@@ -17,7 +17,7 @@ public class Task050 : HomeworkTask
         int rows = random.Next(2, 6);
         int columns = random.Next(2, 6);
 
-        double[,] numbers = Create2DimArray(rows, columns);
+        double[,] numbers = CreateDouble2DimArray(rows, columns);
 
         Result = $"\nДвухмерный массив размером {rows}x{columns}: \n" + stringBuilder.ToString() + "\n";
 
@@ -32,8 +32,7 @@ public class Task050 : HomeworkTask
 
         catch (IndexOutOfRangeException)
         {
-            Result += $"\nНа указанной позиции [{Arguments[0]},{Arguments[1]}] в массиве элемента нет (нумерация индекса с нуля).\n" +
-                $"";
+            Result += $"\nНа указанной позиции [{Arguments[0]},{Arguments[1]}] в массиве элемента нет (нумерация индекса с нуля).\n";
         }
     }
 }

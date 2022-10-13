@@ -119,7 +119,7 @@ public abstract class HomeworkTask
     /// <param name="rows">Количество необходимых строк.</param>
     /// <param name="columns">Количество необходимых столбцов.</param>
     /// <returns>Массив с рандомными double-числами.</returns>
-    protected double[,] Create2DimArray(int rows, int columns)
+    protected double[,] CreateDouble2DimArray(int rows, int columns)
     {
         double[,] numbers = new double[rows, columns];
 
@@ -138,6 +138,27 @@ public abstract class HomeworkTask
         }
         return numbers;
     }
+
+    protected int[,] CreateInt2DimArray(int rows, int columns)
+    {
+        int[,] numbers = new int[rows, columns];
+
+        for (int i = 0; i < rows; i++)
+        {
+            // Для каждой новой строки, т.е. когда инкремент i, переходим на новую строку (для дальнейшего вывода в консоль).
+
+            stringBuilder.Append("\n");
+
+            for (int j = 0; j < columns; j++)
+
+            {
+                numbers[i, j] = random.Next(0, 10);
+                stringBuilder.Append(numbers[i, j] + " ");
+            }
+        }
+        return numbers;
+    }
+
 
     #endregion
 }

@@ -16,8 +16,8 @@ public class Task052 : HomeworkTask
         int rows = random.Next(2, 6);
         int columns = random.Next(2, 6);
 
-        double[,] numbers = Create2DimArray(rows, columns);
-        double[] sumByColumn = new double[columns];
+        int[,] numbers = CreateInt2DimArray(rows, columns);
+        int[] sumByColumn = new int[columns];
 
         Result = $"Двухмерный массив размером {rows}x{columns}: \n" + stringBuilder.ToString() 
                  + "\n\nСреднее арифметическое каждого столбца: ";
@@ -25,7 +25,7 @@ public class Task052 : HomeworkTask
         for (int i = 0; i < columns; i++)
         {
             for (int j = 0; j < rows; j++)
-                sumByColumn[i] += Math.Round((numbers[j, i]), 2);
+                sumByColumn[i] += numbers[j, i];
         }
 
         stringBuilder.Clear();
@@ -34,5 +34,7 @@ public class Task052 : HomeworkTask
             stringBuilder.Append(Math.Round(element / rows, 2) + "  ");
 
         Result += stringBuilder.ToString() + "\n";
+
+
     }
 }
